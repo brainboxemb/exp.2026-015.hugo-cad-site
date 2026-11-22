@@ -1,5 +1,5 @@
 ---
-title: "SolidCraft Hextra proof"
+title: "SolidCraft"
 layout: "hextra-home"
-description: "Shared Hextra presentation for SolidCraft CAD models and Forge documentation."
+description: "SolidCraft CAD models and Forge documentation."
 ---

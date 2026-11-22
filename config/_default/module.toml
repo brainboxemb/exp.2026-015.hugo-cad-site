@@ -45,7 +45,7 @@ files = ["**/*.py", "**/*.svg", "**/*.png", "**/*.jpg", "**/*.jpeg", "**/*.webp"
 [[mounts]]
 source = "sources/cad-build/main"
 target = "assets/cad-build"
-files = ["**/*.json", "**/*.png"]
+files = ["**/*.json", "**/*.png", "**/*.sc", "**/*.step"]
 
 # The Forge API page renders the exact Markdown owned by Forge.
 [[mounts]]

@@ -1,57 +1,42 @@
 {{ define "main" }}
 <main class="sc-home">
-  <header class="sc-doc-hero">
-    <p class="sc-kicker">SolidCraft documentation</p>
-    <h1>SCPF models and Forge reference</h1>
-    <p class="sc-doc-lead">
-      One documentation site family for SolidCraft CAD models and the Forge
-      Python API. CAD pages focus on source and geometry; Forge pages focus on
-      API contracts, examples and reference material.
-    </p>
-  </header>
-
-  <section class="sc-flow-line" aria-label="SolidCraft model flow">
-    <div><span>01</span><strong>SCPF Python</strong><small>Readable model code</small></div>
-    <i>→</i>
-    <div><span>02</span><strong>SolidCraft commands</strong><small>Generated native operations</small></div>
-    <i>→</i>
-    <div><span>03</span><strong>SolidCraft result</strong><small>Built and verified geometry</small></div>
-  </section>
-
-  <section class="sc-start">
-    <div class="sc-section-intro">
-      <p class="sc-kicker">Start here</p>
-      <h2>Choose what you want to inspect</h2>
-      <p>Both areas use the same Hextra navigation and code presentation, but keep their own page structure.</p>
-    </div>
-
-    <div class="sc-start-list">
-      <a class="sc-start-row" href="{{ "models/plate/" | relURL }}">
-        <div>
-          <span class="sc-row-label">CAD / SCPF</span>
-          <h3>Model pages</h3>
-          <p>Read the actual SCPF source next to generated commands, SolidCraft output and accepted build evidence.</p>
-        </div>
-        <strong>Open Plate model →</strong>
-      </a>
-
-      <a class="sc-start-row" href="{{ "docs/forge-api/" | relURL }}">
-        <div>
-          <span class="sc-row-label">Forge</span>
-          <h3>API reference</h3>
-          <p>Use the documentation sidebar, table of contents, search and code examples for the Forge API.</p>
-        </div>
-        <strong>Open Forge API →</strong>
-      </a>
+  <section class="sc-home-hero">
+    <p class="sc-kicker sc-kicker-light">SCPF · SolidCraft</p>
+    <h1>CAD models and Forge reference</h1>
+    <p>Read SCPF models next to the SolidCraft operations they generate, or use the Forge documentation as an API and examples reference.</p>
+    <div class="sc-actions">
+      <a class="sc-btn sc-btn-primary" href="{{ "models/plate/" | relURL }}">Explore a CAD model</a>
+      <a class="sc-btn sc-btn-light" href="{{ "docs/forge-api/" | relURL }}">Open Forge API</a>
     </div>
   </section>
 
-  <section class="sc-principle">
-    <p class="sc-kicker">Design rule</p>
-    <div>
-      <h2>Shared navigation, page types that fit the content</h2>
-      <p>CAD does not become an API manual, and Forge does not become a model gallery. Hextra provides the common shell; each repository keeps the layout needed by its own content.</p>
-    </div>
+  <section class="sc-home-flow" aria-label="SolidCraft model flow">
+    <div><span>1</span><strong>SCPF Python</strong><small>Readable model source</small></div>
+    <i>→</i>
+    <div><span>2</span><strong>SolidCraft commands</strong><small>Generated native operations</small></div>
+    <i>→</i>
+    <div><span>3</span><strong>CAD result</strong><small>Built and verified geometry</small></div>
+  </section>
+
+  <section class="sc-home-grid">
+    <a class="sc-home-card" href="{{ "models/plate/" | relURL }}">
+      <p class="sc-kicker">CAD / SCPF</p>
+      <h2>Model pages</h2>
+      <p>Inspect the model image, SCPF source, generated command sequence and accepted build evidence together.</p>
+      <strong>Open Plate model →</strong>
+    </a>
+    <a class="sc-home-card" href="{{ "docs/forge-api/" | relURL }}">
+      <p class="sc-kicker">Forge</p>
+      <h2>API reference</h2>
+      <p>Use Hextra's documentation navigation, table of contents, search and code examples for the Forge API.</p>
+      <strong>Open Forge API →</strong>
+    </a>
+  </section>
+
+  <section class="sc-home-note">
+    <p class="sc-kicker">Shared site family</p>
+    <h2>One shell, page layouts that fit the content</h2>
+    <p>CAD remains visual and model-oriented. Forge remains documentation-oriented. Navigation, search, code handling and visual language are shared.</p>
   </section>
 </main>
 {{ end }}
