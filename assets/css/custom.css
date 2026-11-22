@@ -718,12 +718,12 @@ html:not(.dark) .hextra-search-trigger {
   list-style: none;
 }
 
-.sc-command-list > .sc-command-step {
+.sc-command-list > li {
   padding: .72rem 0 .78rem;
   border-bottom: 1px solid var(--sc-line);
 }
 
-.sc-command-list > .sc-command-step:last-child {
+.sc-command-list > li:last-child {
   border-bottom: 0;
 }
 
@@ -942,7 +942,7 @@ html:not(.dark) .hextra-search-trigger {
   background: #101827;
 }
 
-.dark .sc-command-list > .sc-command-step {
+.dark .sc-command-list > li {
   border-color: #29384d;
 }
 
