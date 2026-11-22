@@ -54,14 +54,6 @@
       {{ with index $provenance "semantic_verification" }}<span class="sc-badge">Semantic verification · {{ . }}</span>{{ end }}
     </div>
 
-    <nav class="sc-process-strip" aria-label="Jump to model build steps">
-      <a href="#scpf-source"><span>1</span><strong>SCPF Python</strong><small>Model source</small></a>
-      <i>→</i>
-      <a href="#solidcraft-commands"><span>2</span><strong>SolidCraft commands</strong><small>Generated operations</small></a>
-      <i>→</i>
-      <a href="#solidcraft-result"><span>3</span><strong>CAD result</strong><small>Built geometry</small></a>
-    </nav>
-
     <section class="sc-preview-grid">
       <article class="sc-card sc-preview-card">
         <h2>Model preview</h2>
@@ -111,7 +103,7 @@
       </section>
     {{ end }}
 
-    <section class="sc-section sc-source-section" id="scpf-source">
+    <section class="sc-section sc-source-section">
       <div class="sc-section-title">
         <div>
           <p class="sc-kicker">Source</p>
@@ -127,7 +119,7 @@
       {{ end }}
     </section>
 
-    <section class="sc-section sc-command-section" id="solidcraft-commands">
+    <section class="sc-section sc-command-section">
       <div class="sc-section-title">
         <div>
           <p class="sc-kicker">Generated output</p>
@@ -150,7 +142,7 @@
       {{ end }}
     </section>
 
-    <section class="sc-section sc-result-section" id="solidcraft-result">
+    <section class="sc-section sc-result-section">
       <div class="sc-section-title">
         <div>
           <p class="sc-kicker">Build evidence</p>
