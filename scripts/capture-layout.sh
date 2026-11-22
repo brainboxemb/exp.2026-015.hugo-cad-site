@@ -88,3 +88,9 @@ run_chrome \
 
 test -s "$artifact_dir/simple-mft-concept-overview.png"
 test -s "$artifact_dir/simple-mft-concept-full.png"
+
+if grep -Eq '"GET [^"]+" 404 ' "$artifact_dir/browser-server.log"; then
+  echo "Rendered page requested one or more missing local assets:" >&2
+  grep -E '"GET [^"]+" 404 ' "$artifact_dir/browser-server.log" >&2
+  exit 1
+fi
