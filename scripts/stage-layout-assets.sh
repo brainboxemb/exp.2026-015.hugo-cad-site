@@ -13,8 +13,8 @@ cp   sources/cad-build/dev-ci/models/advanced/simple_mft/models/simple-mft/model
 
 cp   sources/cad/models/advanced/simple_mft/expected-top-view.svg   "$target/expected-top-view.svg"
 
-curl   --fail   --location   --retry 3   --retry-delay 1   --silent   --show-error   "https://cdn.myshoptet.com/usr/www.craftmaker.nl/user/documents/upload/Product_description/craftmaker_pro_station_s30_accessories.jpg"   --output "$target/product-reference.jpg"
+cp sources/notes/projects/2026/011-simple-mft/images/craftmaker-s30-top-reference-w320.webp "$target/product-reference.webp"
 
 test -s "$target/model.png"
 test -s "$target/expected-top-view.svg"
-test -s "$target/product-reference.jpg"
+test -s "$target/product-reference.webp"
