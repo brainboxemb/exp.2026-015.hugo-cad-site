@@ -5,16 +5,18 @@ and Forge repositories.
 
 ## Status
 
-**Completed — 2026-11-22.**
+**Branch-publication correction in progress.**
 
 Accepted workflow run: `45032914709`.
 
-The run completed all three gates:
+The Hextra content proof is accepted, but publication is being corrected so the generated site is retained visibly in the repository.
+
+The final publication gate is:
 
 1. build the site with pinned Hextra `v0.13.0`;
-2. deploy the generated site to GitHub Pages;
-3. fetch the public homepage, CAD model page and Forge API page over HTTPS and
-   verify real source content on those live routes.
+2. publish the exact generated `public/` tree to the orphan `gh-pages` branch;
+3. deploy the checked-out `gh-pages` branch to GitHub Pages;
+4. fetch the public homepage, CAD model page and Forge API page over HTTPS.
 
 Public proof:
 
