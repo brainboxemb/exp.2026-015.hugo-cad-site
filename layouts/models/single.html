@@ -65,7 +65,7 @@
       {{ with resources.Get $commandsPath }}
         {{ highlight .Content "json" "" }}
       {{ else }}
-        {{ errorf "CAD proof commands not found: %s" $commandsPath }}
+        <p class="sc-muted">No accepted generated command evidence exists for this model in the pinned build scope.</p>
       {{ end }}
     </section>
 
@@ -83,7 +83,7 @@
           <dt>Build source</dt><dd><code>{{ index $p "source_sha" }}</code></dd>
         </dl>
       {{ else }}
-        {{ errorf "CAD proof provenance not found: %s" $provenancePath }}
+        <p class="sc-muted">No accepted SolidCraft provenance exists for this model in the pinned build scope.</p>
       {{ end }}
     </section>
   </main>
