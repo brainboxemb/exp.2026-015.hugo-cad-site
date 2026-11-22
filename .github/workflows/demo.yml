@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -81,24 +81,16 @@ jobs:
           grep -F "Primary cross-object API contract" public/docs/forge-api/index.html
           grep -F "object-first assemblies" public/docs/forge-api/index.html
 
-      - name: Upload proof artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: hextra-proof
-          path: public/
-          if-no-files-found: error
-
-      - name: Configure Pages
+      - name: Publish exact generated site to gh-pages
         if: github.event_name != 'pull_request'
-        uses: actions/configure-pages@v5
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          enablement: true
-
-      - name: Upload Pages artifact
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: public
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./public
+          force_orphan: true
+          enable_jekyll: false
+          commit_message: "site: publish Hextra proof from ${{ github.sha }}"
 
   deploy:
     if: github.event_name != 'pull_request'
@@ -110,7 +102,29 @@ jobs:
     outputs:
       page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy Hextra proof
+      - name: Checkout published gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: published
+          fetch-depth: 1
+
+      - name: Verify published branch content
+        run: |
+          test -s published/index.html
+          test -s published/models/plate/index.html
+          test -s published/docs/forge-api/index.html
+          test -f published/.nojekyll
+          grep -F "One Hugo base for CAD and Forge" published/index.html
+          grep -F "Generated SolidCraft commands" published/models/plate/index.html
+          grep -F "Primary cross-object API contract" published/docs/forge-api/index.html
+
+      - name: Upload gh-pages branch as Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: published
+
+      - name: Deploy published branch
         id: deployment
         uses: actions/deploy-pages@v4
 
