@@ -47,3 +47,35 @@ html:not(.dark) .hextra-nav-container-blur{
     width:min(1080px,calc(100% - 28px))!important;
   }
 }
+
+
+/* Keep CAD pages on the typography used by the accepted pre-Hugo site.
+   Forge documentation can keep Hextra's documentation typography. */
+.sc-home,
+.sc-page-shell{
+  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+}
+.sc-files-card,
+.sc-files-card h2,
+.sc-files-card h3,
+.sc-stage-list,
+.sc-stage-list li{
+  font-family:inherit;
+}
+.sc-files-card h2{
+  font-weight:750;
+  letter-spacing:-.018em;
+}
+.sc-files-card h3{
+  font-weight:700;
+  letter-spacing:-.01em;
+}
+.sc-stage-list{
+  font-size:.9rem;
+  line-height:1.48;
+}
+.sc-stage-list li{
+  margin:.28rem 0;
+  color:var(--sc-ink);
+  font-weight:450;
+}
