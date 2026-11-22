@@ -157,3 +157,125 @@ html:not(.dark) .hextra-nav-container-blur{
   line-height:1.52;
   padding:4px 11px;
 }
+
+
+/* SolidCraft Web is a normal vertical content block: explanation first,
+   actions directly underneath. */
+.sc-web-panel{
+  display:block;
+}
+.sc-web-actions{
+  justify-content:flex-start;
+  min-width:0;
+  margin-top:1rem;
+}
+
+
+/* CAD typography profile from the accepted pre-Hugo site. Hextra remains the
+   docs shell, but it must not shrink or restyle CAD content. */
+.sc-home,
+.sc-page-shell{
+  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:1rem;
+  line-height:1.52;
+  color:var(--sc-ink);
+}
+.sc-home p,
+.sc-page-shell p,
+.sc-page-shell li{
+  line-height:1.52;
+}
+.sc-home-hero h1,
+.sc-cad-hero h1{
+  font-size:clamp(2rem,4.5vw,3rem);
+  line-height:1.14;
+  font-weight:700;
+}
+.sc-home-hero>p:not(.sc-kicker),
+.sc-cad-hero>p:not(.sc-kicker){
+  font-size:1.08rem;
+  line-height:1.52;
+}
+.sc-kicker{
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.11em;
+}
+.sc-card h2,
+.sc-section h2,
+.sc-web-panel h2{
+  font-size:1.6rem;
+  line-height:1.3;
+  font-weight:700;
+}
+.sc-card h3,
+.sc-section h3{
+  line-height:1.3;
+  font-weight:700;
+}
+.sc-card>p,
+.sc-web-panel p,
+.sc-section-lead{
+  font-size:1rem;
+  line-height:1.52;
+}
+.sc-small{
+  font-size:.86rem;
+  line-height:1.52;
+}
+.sc-btn{
+  padding:9px 14px;
+  min-height:0;
+  font-size:1rem;
+  line-height:1.2;
+  font-weight:650;
+  border-radius:9px;
+}
+.sc-stage-list{
+  font-size:1rem;
+  line-height:1.52;
+}
+.sc-stage-list li{
+  margin:.3rem 0;
+  font-weight:400;
+}
+.sc-command-heading code{
+  font-size:.95rem;
+}
+.sc-command-list pre{
+  font-size:12px;
+  line-height:1.45;
+}
+.sc-provenance-grid span{
+  font-size:.83rem;
+}
+.sc-provenance-grid strong,
+.sc-provenance-grid code{
+  font-size:.86rem;
+}
+
+
+/* Header typography from the accepted pre-Hugo CAD site. */
+.hextra-max-navbar-width{
+  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  line-height:1.52;
+}
+html:not(.dark) .hextra-max-navbar-width>a:first-of-type{
+  color:#17375e!important;
+  font-size:1.19rem!important;
+  font-weight:800!important;
+  letter-spacing:0!important;
+}
+html:not(.dark) .hextra-max-navbar-width>a:not(:first-of-type){
+  color:#34445a!important;
+  font-size:1rem!important;
+  font-weight:600!important;
+  line-height:1.52!important;
+}
+html:not(.dark) .hextra-max-navbar-width>a:not(:first-of-type):hover{
+  color:var(--sc-accent)!important;
+}
+html:not(.dark) .hextra-search-trigger{
+  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:.9rem;
+}

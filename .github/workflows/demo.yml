@@ -81,7 +81,7 @@ jobs:
           grep -F "parameters.add" public/models/plate/index.html
           grep -F "SolidCraft command sequence" public/models/plate/index.html
           grep -F "hextra-code-copy-btn" public/models/plate/index.html
-          grep -F "Native verified" public/models/plate/index.html
+          grep -F "SolidCraft verified" public/models/plate/index.html
           grep -F "Open this model in SolidCraft Web" public/models/plate/index.html
           grep -F "docs.solidcraft.io/app/?open=" public/models/plate/index.html
           grep -F "Semantic verification" public/models/plate/index.html

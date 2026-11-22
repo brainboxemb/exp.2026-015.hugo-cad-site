@@ -47,7 +47,7 @@
 
     <div class="sc-meta-row">
       {{ if and (index $provenance "solidcraft_built") (index $provenance "solidcraft_verified") }}
-        <span class="sc-badge sc-badge-ok">Native verified</span>
+        <span class="sc-badge sc-badge-ok">SolidCraft verified</span>
       {{ end }}
       {{ if gt (len $commands) 0 }}<span class="sc-badge">{{ len $commands }} commands</span>{{ end }}
       <span class="sc-badge">{{ index $m "parameters" }}</span>
@@ -76,10 +76,10 @@
         <div class="sc-actions">
           {{ with $source }}<a class="sc-btn sc-btn-primary" href="{{ .RelPermalink }}">SCPF source</a>{{ end }}
           {{ with $commandsResource }}<a class="sc-btn sc-btn-soft" href="{{ .RelPermalink }}">Command JSON</a>{{ end }}
-          {{ with $native }}<a class="sc-btn sc-btn-soft" href="{{ .RelPermalink }}">Native .sc</a>{{ end }}
+          {{ with $native }}<a class="sc-btn sc-btn-soft" href="{{ .RelPermalink }}">SolidCraft .sc</a>{{ end }}
           {{ with $step }}<a class="sc-btn sc-btn-soft" href="{{ .RelPermalink }}">STEP</a>{{ end }}
         </div>
-        <p class="sc-small">Command JSON describes the generated SolidCraft operations. The native .sc file is the editable CAD result.</p>
+        <p class="sc-small">Command JSON describes the generated SolidCraft operations. The .sc file is the editable SolidCraft model.</p>
         <h3>Construction stages</h3>
         <ol class="sc-stage-list">
           {{ range index $m "stages" }}<li>{{ . }}</li>{{ end }}
@@ -91,14 +91,14 @@
       {{ $nativePublic := .Permalink }}
       <section class="sc-web-panel">
         <div class="sc-web-copy">
-          <p class="sc-kicker">Native model</p>
+          <p class="sc-kicker">SolidCraft model</p>
           <h2>Open this model in SolidCraft Web</h2>
-          <p>The native editable model can be opened in SolidCraft's official web application at <strong>docs.solidcraft.io</strong>.</p>
+          <p>The editable SolidCraft model can be opened in SolidCraft's official web application at <strong>docs.solidcraft.io</strong>.</p>
           <p class="sc-small"><strong>External website:</strong> the web app is loaded from SolidCraft's servers. The <code>.sc</code> model remains hosted on this GitHub Pages site; it is not embedded here.</p>
         </div>
         <div class="sc-web-actions">
           <a class="sc-btn sc-btn-primary" href="https://docs.solidcraft.io/app/?open={{ urlquery $nativePublic }}" target="_blank" rel="noopener noreferrer">Open in SolidCraft Web</a>
-          <a class="sc-btn sc-btn-soft" href="{{ .RelPermalink }}" download>Download native .sc</a>
+          <a class="sc-btn sc-btn-soft" href="{{ .RelPermalink }}" download>Download model .sc</a>
         </div>
       </section>
     {{ end }}
