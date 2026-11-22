@@ -1,0 +1,4 @@
+references:
+  - source: "https://cdn.myshoptet.com/usr/www.craftmaker.nl/user/documents/upload/Product_description/craftmaker_pro_station_s30_accessories.jpg"
+    local: "layout-assets/simple-mft/product-reference.webp"
+    caption: "Product reference used to estimate the hole and Slot pattern."
