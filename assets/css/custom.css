@@ -330,7 +330,7 @@ html:not(.dark) .hextra-search-trigger {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(300px, .95fr);
   gap: 1.3rem;
-  align-items: start;
+  align-items: stretch;
   margin: 1.35rem 0 1.5rem;
 }
 
@@ -339,11 +339,16 @@ html:not(.dark) .hextra-search-trigger {
   min-width: 0;
 }
 
+.sc-preview-card {
+  display: flex;
+  flex-direction: column;
+}
+
 .sc-picture {
   display: grid;
+  flex: 1 1 auto;
   place-items: center;
-  aspect-ratio: 3 / 2;
-  height: auto;
+  min-height: 0;
   margin: .55rem 0 0;
   overflow: hidden;
   border: 1px solid var(--sc-line);
