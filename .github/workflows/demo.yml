@@ -46,6 +46,14 @@ jobs:
           path: sources/forge
           fetch-depth: 1
 
+      - name: Checkout pinned Notes image cache
+        uses: actions/checkout@v4
+        with:
+          repository: brainboxemb/notes
+          ref: e56a0ab01ad9031578d0f3c158309ea2606cd81e
+          path: sources/notes
+          fetch-depth: 1
+
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
@@ -64,8 +72,34 @@ jobs:
           grep -F "github.com/imfing/hextra@v0.13.0" <<<"$graph"
           ! grep -F "github.com/nunocoracao/blowfish" <<<"$graph"
 
+      - name: Stage Simple MFT layout assets
+        run: bash scripts/stage-layout-assets.sh
+
       - name: Build Hextra proof
         run: hugo --gc --minify --printPathWarnings
+
+      - name: Verify Simple MFT concept page
+        run: |
+          test -s public/models/simple-mft-concept/index.html
+          test -s public/layout-assets/simple-mft/model.png
+          test -s public/layout-assets/simple-mft/expected-top-view.svg
+          test -s public/layout-assets/simple-mft/product-reference.webp
+          grep -F "sc-files-card" public/models/simple-mft-concept/index.html
+          grep -F "23 commands" public/models/simple-mft-concept/index.html
+          grep -F "Reference and 2D expectation" public/models/simple-mft-concept/index.html
+          grep -F "Build and verification" public/models/simple-mft-concept/index.html
+          grep -F "layout-assets/simple-mft/model.png" public/models/simple-mft-concept/index.html
+
+      - name: Capture Simple MFT layout in headless Chrome
+        run: bash scripts/capture-layout.sh
+
+      - name: Upload visual layout evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: simple-mft-layout
+          path: artifacts/layout
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Verify generated proof pages
         run: |
