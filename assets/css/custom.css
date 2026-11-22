@@ -157,3 +157,15 @@ html:not(.dark) .hextra-nav-container-blur{
   line-height:1.52;
   padding:4px 11px;
 }
+
+
+/* SolidCraft Web is a normal vertical content block: explanation first,
+   actions directly underneath. */
+.sc-web-panel{
+  display:block;
+}
+.sc-web-actions{
+  justify-content:flex-start;
+  min-width:0;
+  margin-top:1rem;
+}
