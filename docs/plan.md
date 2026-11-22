@@ -94,3 +94,31 @@ there; the workflow should only invoke the script and retain its output.
 
 Presentation screenshots are review evidence. They complement, rather than
 replace, HTML/content assertions.
+
+
+### Current Simple MFT concept
+
+Draft PR #19 is the visual proving ground for the complete Simple MFT detail
+page. It stays in this experiment until the page system is stable enough to
+port as one coherent change.
+
+Current accepted visual evidence: PR run #61 (`45065715970`).
+
+That rendered proof confirms:
+
+- the model preview, product reference and 2D expectation all load from staged
+  pinned evidence; no model-detail screenshot depends on the live `dev-ci`
+  site for those visuals;
+- preview geometry is independent from heading height and the model no longer
+  drops down because of a heading/min-height selector;
+- Construction stages uses the same sans-serif body typography and line-height
+  as the rest of the CAD page;
+- SolidCraft Web, Background, references, source, generated commands,
+  verification and downloads use one label/title/body/card hierarchy;
+- the page renders the real pinned Simple MFT Python source and all 23 generated
+  SolidCraft commands instead of shortened demonstration content;
+- the verification panel reflects the accepted provenance values rather than
+  placeholder success values.
+
+Do not port the concept to `2026-011-02.cad.solidcraft/dev-ci` piecemeal.
+Keep iterating here and move the accepted component/layout system as one unit.
