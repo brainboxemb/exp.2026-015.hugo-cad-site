@@ -1,0 +1,8 @@
+{{ $m := .Params.model }}
+<a class="cad-model-card" href="{{ .RelPermalink }}">
+  <span class="cad-card-section">{{ .Params.cadSection }}</span>
+  <strong>{{ .Title }}</strong>
+  <span>{{ index $m "tagline" }}</span>
+  <small>{{ index $m "parameters" }}</small>
+  {{ with index $m "warning" }}<b class="cad-card-warning">Reference warning</b>{{ end }}
+</a>

@@ -1,0 +1,94 @@
+name: Blowfish demo
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: blowfish-demo-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout experiment
+        uses: actions/checkout@v4
+
+      - name: Checkout exact CAD metadata source
+        uses: actions/checkout@v4
+        with:
+          repository: brainboxemb/2026-011-02.cad.solidcraft
+          ref: f6548557daa77f2e3ebb9e1823e26702e66a8d76
+          path: sources/cad
+          fetch-depth: 1
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.x"
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.169.0"
+          extended: true
+
+      - name: Verify pinned theme graph
+        run: |
+          hugo mod graph
+          grep -F "github.com/nunocoracao/blowfish/v3@v3.10.0" <(hugo mod graph)
+
+      - name: Build
+        run: hugo --minify --printPathWarnings
+
+      - name: Verify model.yml routes and content
+        run: |
+          test -s public/models/plate/index.html
+          test -s public/models/guide-rail/index.html
+          test -s public/models/guide-rail-makita/index.html
+          test -s public/models/simple-mft/index.html
+          test -s public/models/simple-mft-assembly/index.html
+          test -s public/models/hub75-panel/index.html
+          test -s public/models/basic/index.html
+          test -s public/models/components/index.html
+          test -s public/models/advanced/index.html
+          grep -F "A rounded plate with four holes" public/models/plate/index.html
+          grep -F "WARNING — measured/reference geometry" public/models/guide-rail/index.html
+          grep -F "Reference and 2D expectation" public/models/simple-mft/index.html
+
+      - name: Upload generated demo
+        uses: actions/upload-artifact@v4
+        with:
+          name: blowfish-demo
+          path: public/
+          if-no-files-found: error
+
+      - name: Configure Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy demo
+        id: deployment
+        uses: actions/deploy-pages@v4

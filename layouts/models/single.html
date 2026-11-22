@@ -1,0 +1,84 @@
+{{ define "main" }}
+  {{ if .Params.categoryIndex }}
+    {{ $models := where site.RegularPages "Params.cadSection" .Params.cadSection }}
+    {{ $models = where $models "Params.categoryIndex" "!=" true }}
+    <header class="cad-heading">
+      <p class="cad-eyebrow">CAD category</p>
+      <h1>{{ .Title }}</h1>
+      <p>{{ len $models }} model variants from local <code>model.yml</code> metadata.</p>
+    </header>
+    <div class="cad-model-grid">
+      {{ range sort $models "Params.model.priority" }}
+        {{ partial "cad/model-card.html" . }}
+      {{ end }}
+    </div>
+  {{ else }}
+    {{ $m := .Params.model }}
+    {{ $repo := site.Params.cadSourceRepository }}
+    {{ $ref := site.Params.cadSourceRef }}
+    {{ $root := printf "models/%s/%s" .Params.cadSection .Params.cadRoot }}
+    <article class="cad-model-detail">
+      <header class="cad-heading">
+        <p class="cad-eyebrow">{{ .Params.cadSection }} · {{ .Params.cadSlug }}</p>
+        <h1>{{ .Title }}</h1>
+        <p class="cad-lead">{{ index $m "tagline" }}</p>
+        <div class="cad-badges">
+          <span>{{ index $m "parameters" }}</span>
+          <span>model.yml</span>
+        </div>
+      </header>
+
+      {{ with index $m "warning" }}
+        <aside class="cad-warning">
+          <strong>{{ index . "title" }}</strong>
+          <p>{{ index . "body" }}</p>
+        </aside>
+      {{ end }}
+
+      <div class="cad-detail-grid">
+        <section>
+          <h2>Model</h2>
+          <p>{{ index $m "description" }}</p>
+        </section>
+        <section>
+          <h2>Source</h2>
+          <p><code>{{ $root }}/{{ index $m "source" }}</code></p>
+          <p>
+            <a href="https://github.com/{{ $repo }}/blob/{{ $ref }}/{{ $root }}/model.yml">model.yml</a>
+            ·
+            <a href="https://github.com/{{ $repo }}/blob/{{ $ref }}/{{ $root }}/{{ index $m "source" }}">Python source</a>
+          </p>
+        </section>
+      </div>
+
+      <section>
+        <h2>Construction stages</h2>
+        <ol class="cad-stages">
+          {{ range index $m "stages" }}<li>{{ . }}</li>{{ end }}
+        </ol>
+      </section>
+
+      {{ with index $m "extra_views" }}
+        <section>
+          <h2>{{ index . "title" }}</h2>
+          {{ with index . "note" }}<p>{{ . }}</p>{{ end }}
+          <div class="cad-reference-grid">
+            {{ range index . "items" }}
+              <article>
+                <strong>{{ index . "caption" }}</strong>
+                <p>{{ index . "alt" }}</p>
+                {{ if eq (index . "kind") "url" }}
+                  <a href="{{ index . "src" }}">Open external reference</a>
+                {{ else }}
+                  <code>{{ index . "kind" }}: {{ index . "src" }}</code>
+                {{ end }}
+              </article>
+            {{ end }}
+          </div>
+        </section>
+      {{ end }}
+
+      <p><a href="{{ "models/" | relURL }}">← Back to all models</a></p>
+    </article>
+  {{ end }}
+{{ end }}

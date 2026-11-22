@@ -1,0 +1,32 @@
+{{ define "main" }}
+  <header class="cad-heading">
+    <p class="cad-eyebrow">model.yml catalogue</p>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </header>
+
+  <nav class="cad-category-grid" aria-label="Model categories">
+    {{ range $key := slice "basic" "components" "advanced" }}
+      {{ $page := site.GetPage (printf "/models/%s" $key) }}
+      {{ with $page }}
+        <a class="cad-category-card" href="{{ .RelPermalink }}">
+          <strong>{{ .Title }}</strong>
+          <span>Browse {{ $key }}</span>
+        </a>
+      {{ end }}
+    {{ end }}
+  </nav>
+
+  {{ range $key := slice "basic" "components" "advanced" }}
+    {{ $models := where site.RegularPages "Params.cadSection" $key }}
+    {{ $models = where $models "Params.categoryIndex" "!=" true }}
+    <section class="cad-section">
+      <h2>{{ (site.GetPage (printf "/models/%s" $key)).Title }}</h2>
+      <div class="cad-model-grid">
+        {{ range sort $models "Params.model.priority" }}
+          {{ partial "cad/model-card.html" . }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+{{ end }}

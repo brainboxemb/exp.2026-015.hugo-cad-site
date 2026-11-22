@@ -1,0 +1,30 @@
+colorScheme = "slate"
+defaultAppearance = "light"
+autoSwitchAppearance = true
+enableSearch = true
+enableCodeCopy = true
+
+[header]
+  layout = "fixed"
+
+[footer]
+  showThemeAttribution = true
+  showAppearanceSwitcher = true
+
+[homepage]
+  layout = "landing"
+  showRecent = false
+
+[list]
+  cardView = true
+  cardViewScreenWidth = false
+  showSummary = true
+  showBreadcrumbs = true
+
+[article]
+  showDate = false
+  showReadingTime = false
+  showWordCount = false
+  showTableOfContents = false
+  showBreadcrumbs = true
+  showTaxonomies = false

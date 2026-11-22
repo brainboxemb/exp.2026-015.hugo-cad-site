@@ -1,0 +1,18 @@
+baseURL = "https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/"
+locale = "en"
+defaultContentLanguage = "en"
+title = "SolidCraft CAD — Blowfish experiment"
+enableRobotsTXT = false
+summaryLength = 24
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+
+[params]
+  description = "Direct model.yml to Hugo/Blowfish CAD catalogue experiment."
+  cadSourceRepository = "brainboxemb/2026-011-02.cad.solidcraft"
+  cadSourceRef = "f6548557daa77f2e3ebb9e1823e26702e66a8d76"

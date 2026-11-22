@@ -1,0 +1,68 @@
+{{/* Generate the model catalogue directly from the mounted CAD data tree. */}}
+{{ $catalog := hugo.Data.cad.models }}
+{{ $categoryTitles := dict
+  "basic" "Basic Models"
+  "components" "Components"
+  "advanced" "Advanced Models"
+}}
+
+{{/* Keep the existing category routes without moving model detail routes. */}}
+{{ range $section := slice "basic" "components" "advanced" }}
+  {{ $page := dict
+    "kind" "page"
+    "path" $section
+    "title" (index $categoryTitles $section)
+    "params" (dict
+      "categoryIndex" true
+      "cadSection" $section
+    )
+  }}
+  {{ $.AddPage $page }}
+{{ end }}
+
+{{ range $section, $roots := $catalog }}
+  {{ range $rootName, $rootData := $roots }}
+    {{ with $meta := index $rootData "model" }}
+      {{ with $variants := index $meta "variants" }}
+        {{ range $slug, $variant := $variants }}
+          {{ $content := dict
+            "mediaType" "text/markdown"
+            "value" (index $variant "description")
+          }}
+          {{ $page := dict
+            "content" $content
+            "kind" "page"
+            "path" $slug
+            "title" (index $variant "title")
+            "params" (dict
+              "model" $variant
+              "cadSection" $section
+              "cadRoot" $rootName
+              "cadSlug" $slug
+            )
+          }}
+          {{ $.AddPage $page }}
+        {{ end }}
+      {{ else }}
+        {{ $slug := strings.Replace $rootName "_" "-" }}
+        {{ $content := dict
+          "mediaType" "text/markdown"
+          "value" (index $meta "description")
+        }}
+        {{ $page := dict
+          "content" $content
+          "kind" "page"
+          "path" $slug
+          "title" (index $meta "title")
+          "params" (dict
+            "model" $meta
+            "cadSection" $section
+            "cadRoot" $rootName
+            "cadSlug" $slug
+          )
+        }}
+        {{ $.AddPage $page }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
