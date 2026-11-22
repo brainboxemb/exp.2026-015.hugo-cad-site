@@ -1,40 +1,56 @@
 # Hextra site experiment plan
 
-This file is the current source of truth for unfinished work in
+This file records the accepted result of
 `exp.2026-015.hugo-cad-site`.
 
-## Current accepted baseline
+## Status
 
-The earlier Blowfish experiment proved that Hugo can generate CAD routes from
-model-owned metadata, but it did not prove a shared CAD/Forge presentation base
-and its experiment completion did not require a visible public page.
+**Complete — 2026-11-22.**
 
-## Active workstream
+Accepted workflow run:
 
-### Hextra end-to-end proof
+`45032914709`
 
-Status: **in progress**.
+Accepted public routes:
 
-Pinned inputs:
+- https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/
+- https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/models/plate/
+- https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/docs/forge-api/
+
+## Accepted inputs
 
 - Hextra v0.13.0;
 - CAD source b627544423523ce54d2366ad4ae52d233532c54a;
 - CAD build scope b00fa56ac62eb34ed405f87a2a4f2dc3efa3d23f;
 - Forge source 156a4bfd316dbe711932f58990328e5711385751.
 
-Acceptance:
+## Accepted evidence
 
-1. PR build succeeds with no Blowfish module and no Node/npm step.
-2. CAD proof page renders actual SCPF source, generated commands, build image
-   and provenance.
-3. Forge proof page renders actual docs/api.md with Hextra docs navigation.
-4. Main deploy succeeds to GitHub Pages.
-5. Post-deploy verify-live fetches the public homepage, CAD route and Forge API
-   route over HTTPS and checks their source content.
-6. Only after step 5: mark this plan and README completed and record the
-   evidence in meta.cad.solidcraft.
+The PR build proved:
 
-## Next checkpoint
+- the Hextra module is exactly v0.13.0;
+- Blowfish is absent from the module graph;
+- no Node/npm build step is required;
+- the CAD Plate route contains the actual SCPF source;
+- the CAD Plate route contains accepted generated SolidCraft commands;
+- the CAD Plate route contains accepted provenance;
+- the Forge route renders the actual Forge docs/api.md.
 
-Public Pages verification. Do not close experiment issue #3 before that check is
-green.
+Main run `45032914709` then proved:
+
+- Hugo build success;
+- GitHub Pages deployment success;
+- post-deploy HTTPS retrieval success for all three public proof routes;
+- expected CAD source/command content is present on the live CAD route;
+- expected Forge API content is present on the live Forge route.
+
+## Conclusion
+
+Use Hextra as the shared Hugo base for the SolidCraft CAD/Forge site family.
+
+Keep the shared layer small. CAD keeps custom model/catalog layouts. Forge uses
+the normal Hextra documentation layout for API/reference/guides where it fits.
+
+The next work belongs in the consumer repositories and shared
+`meta.cad.solidcraft` conventions. Do not expand this experiment into a
+production owner.
