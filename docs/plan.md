@@ -74,3 +74,23 @@ main source
 Do not mark the publication correction complete until the `gh-pages` branch
 exists, contains the generated CAD and Forge proof pages, and the subsequent
 live verification succeeds.
+
+
+## Model-detail visual verification
+
+The Simple MFT layout concept is verified as a rendered page, not only as
+generated HTML.
+
+The PR build:
+
+1. builds the Hugo site normally;
+2. serves the generated site from localhost using the production base path;
+3. opens `/models/simple-mft-concept/` in the runner's Chrome/Chromium;
+4. captures a normal desktop viewport and a tall layout screenshot;
+5. uploads those PNG files as the `simple-mft-layout` workflow artifact.
+
+The screenshot script is `scripts/capture-layout.sh`. Keep browser mechanics
+there; the workflow should only invoke the script and retain its output.
+
+Presentation screenshots are review evidence. They complement, rather than
+replace, HTML/content assertions.
