@@ -5,16 +5,19 @@ This file records the accepted result of
 
 ## Status
 
-**Hextra content proof complete; branch publication correction in progress.**
+**Hextra/CAD presentation baseline accepted in the experiment.**
 
-Accepted workflow run:
+Current accepted main deployment before #27:
 
-`45032914709`
+- run #74 (`45069100466`);
+- build, `gh-pages` publication, Pages deployment and live HTTPS verification
+  all succeeded.
 
 Accepted public routes:
 
 - https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/
 - https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/models/plate/
+- https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/models/simple-mft/
 - https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/docs/forge-api/
 
 ## Accepted inputs
@@ -79,91 +82,58 @@ live verification succeeds.
 
 ## Model-detail visual verification
 
-The Simple MFT layout concept is verified as a rendered page, not only as
-generated HTML.
+Model-detail presentation is verified from rendered pages, not only generated
+HTML.
 
 The PR build:
 
 1. builds the Hugo site normally;
 2. serves the generated site from localhost using the production base path;
-3. opens `/models/simple-mft-concept/` in the runner's Chrome/Chromium;
-4. captures a normal desktop viewport and a tall layout screenshot;
-5. uploads those PNG files as the `simple-mft-layout` workflow artifact.
+3. opens both `/models/plate/` and `/models/simple-mft/` in the runner's
+   Chrome/Chromium;
+4. captures overview and tall screenshots for both routes;
+5. fails if rendered pages request missing local assets;
+6. uploads the PNG evidence as the `model-layouts` workflow artifact.
 
-The screenshot script is `scripts/capture-layout.sh`. Keep browser mechanics
-there; the workflow should only invoke the script and retain its output.
+The screenshot mechanics live in `scripts/capture-layout.sh`.
 
-Presentation screenshots are review evidence. They complement, rather than
-replace, HTML/content assertions.
+### Accepted model-detail contract
 
+Issues #20–#23 established the calm generic model-detail baseline:
 
-### Current Simple MFT concept
-
-Draft PR #19 is the visual proving ground for the complete Simple MFT detail
-page. It stays in this experiment until the page system is stable enough to
-port as one coherent change.
-
-Current accepted visual evidence: PR run #66 (`45066184367`).
-
-That rendered proof confirms:
-
-- the model preview, product reference and 2D expectation all load from staged
-  pinned evidence; no model-detail screenshot depends on the live `dev-ci`
-  site for those visuals;
-- preview geometry is independent from heading height and the model no longer
-  drops down because of a heading/min-height selector;
-- Construction stages uses the same sans-serif body typography and line-height
-  as the rest of the CAD page;
-- SolidCraft Web, Background, references, source, generated commands,
-  verification and downloads use one label/title/body/card hierarchy;
-- the page renders the real pinned Simple MFT Python source and all 23 generated
-  SolidCraft commands instead of shortened demonstration content;
-- the verification panel reflects the accepted provenance values rather than
-  placeholder success values.
-
-Do not port the concept to `2026-011-02.cad.solidcraft/dev-ci` piecemeal.
-Keep iterating here and move the accepted component/layout system as one unit.
-
-
-## Generic model-detail cleanup
-
-The generic model-detail route is being brought back toward the calmer accepted
-CAD presentation instead of adding more dashboard-style UI.
-
-Tracking:
-- #20 — restore the calm generic model-detail layout;
-- #21 — remove stray section ordinals and collapse large technical code;
-- #22 — simplify build evidence/provenance;
-- #23 — capture generic model pages in the rendered screenshot lane.
-
-Visual reference:
-- the existing CAD `main` model-detail layout is the presentation baseline;
-- Hextra remains the shared shell;
-- the work here should fix typography, layout mechanics and reusable Hugo
-  structure without increasing information density.
-
-The representative regression route is `/models/plate/`. The Simple MFT
-concept stays in the screenshot lane as a second, richer model-detail reference.
-
-
-### #25 — Simple MFT convergence
-
-The Simple MFT concept now uses the same calm model-detail presentation contract
-as the generic Plate route:
-
-- one compact facts row instead of status badges;
-- Model preview and Files/Construction stages use the same overview structure;
-- Open in SolidCraft Web, Background, reference, source, commands, verification
-  and downloads use ordinary document sections;
+- the existing CAD `main` presentation is the visual reference;
+- the model overview uses two quiet panels: Model preview and
+  Files/Construction stages;
+- Construction stages uses the normal CAD body typography;
+- preview geometry is independent from heading height;
+- the rest of the page uses ordinary document sections with subtle separators;
 - SCPF source and SolidCraft commands are collapsed by default;
-- build evidence uses the same quiet key/value list;
-- the two-column Reference and 2D expectation comparison remains intact.
+- standalone section ordinals are not used;
+- command-step ordinals inside the expanded command list remain;
+- build and verification evidence is a compact key/value definition list.
 
-Accepted rendered proof: PR run #72 (`45068878682`).
+### Simple MFT convergence — #25
 
-That run shows Plate and Simple MFT using the same quiet hierarchy while the
-Simple MFT reference comparison, source/command collapse and provenance list
-remain intact.
+Simple MFT now uses the **same generic `layouts/models/single.html` template**
+as Plate.
 
-The remaining special template exists only because Simple MFT currently carries
-extra experimental content. Do not introduce a second visual system there.
+Its richer content is data/content rather than a second presentation template:
+
+- model metadata and `extra_views` come from the pinned `model.yml`;
+- Background prose lives in `assets/model-details/simple-mft.md`;
+- the external product reference resolves through
+  `data/cad/reference_cache.yml` to the pinned Notes image cache;
+- the 2D expectation is mounted directly from the pinned CAD source;
+- model image, commands, native files and provenance come from the pinned CAD
+  build scope.
+
+The temporary `/models/simple-mft-concept/` page and its dedicated layout have
+been removed.
+
+PR #27 run #78 (`45069700337`) proves the generated Plate and Simple MFT
+routes together after that removal.
+
+Do not port individual CSS fixes to
+`2026-011-02.cad.solidcraft/dev-ci`. Port the accepted generic layout,
+content conventions and screenshot verification as one coherent change.
+

@@ -78,19 +78,17 @@ jobs:
       - name: Build Hextra proof
         run: hugo --gc --minify --printPathWarnings
 
-      - name: Verify Simple MFT concept page
+      - name: Verify generated Simple MFT page
         run: |
-          test -s public/models/simple-mft-concept/index.html
-          test -s public/layout-assets/simple-mft/model.png
-          test -s public/layout-assets/simple-mft/expected-top-view.svg
+          test -s public/models/simple-mft/index.html
           test -s public/layout-assets/simple-mft/product-reference.webp
-          grep -F "sc-generic-overview" public/models/simple-mft-concept/index.html
-          grep -F "sc-code-details" public/models/simple-mft-concept/index.html
-          grep -F "sc-quiet-provenance" public/models/simple-mft-concept/index.html
-          grep -F "23 commands" public/models/simple-mft-concept/index.html
-          grep -F "Reference and 2D expectation" public/models/simple-mft-concept/index.html
-          grep -F "Build and verification" public/models/simple-mft-concept/index.html
-          grep -F "layout-assets/simple-mft/model.png" public/models/simple-mft-concept/index.html
+          grep -F "sc-generic-overview" public/models/simple-mft/index.html
+          grep -F "sc-code-details" public/models/simple-mft/index.html
+          grep -F "sc-quiet-provenance" public/models/simple-mft/index.html
+          grep -F "23 commands" public/models/simple-mft/index.html
+          grep -F "Reference and 2D expectation" public/models/simple-mft/index.html
+          grep -F "Build and verification" public/models/simple-mft/index.html
+          grep -F "expected-top-view" public/models/simple-mft/index.html
 
       - name: Capture model layouts in headless Chrome
         run: bash scripts/capture-layout.sh
@@ -156,6 +154,7 @@ jobs:
         run: |
           test -s published/index.html
           test -s published/models/plate/index.html
+          test -s published/models/simple-mft/index.html
           test -s published/docs/forge-api/index.html
           test -f published/.nojekyll
           grep -F "CAD models and Forge reference" published/index.html
@@ -165,6 +164,9 @@ jobs:
           grep -F "sc-quiet-provenance" published/models/plate/index.html
           grep -F "hextra-code-copy-btn" published/models/plate/index.html
           grep -F "Open in SolidCraft Web" published/models/plate/index.html
+          grep -F "Reference and 2D expectation" published/models/simple-mft/index.html
+          grep -F "sc-code-details" published/models/simple-mft/index.html
+          grep -F "sc-quiet-provenance" published/models/simple-mft/index.html
           grep -F "Primary cross-object API contract" published/docs/forge-api/index.html
 
       - name: Upload gh-pages branch as Pages artifact
@@ -213,6 +215,7 @@ jobs:
 
           fetch "" /tmp/home.html
           fetch "models/plate/" /tmp/plate.html
+          fetch "models/simple-mft/" /tmp/simple-mft.html
           fetch "docs/forge-api/" /tmp/forge-api.html
 
           grep -F "CAD models and Forge reference" /tmp/home.html
@@ -225,8 +228,12 @@ jobs:
           grep -F "sc-quiet-provenance" /tmp/plate.html
           grep -F "hextra-code-copy-btn" /tmp/plate.html
           grep -F "Open in SolidCraft Web" /tmp/plate.html
+          grep -F "Reference and 2D expectation" /tmp/simple-mft.html
+          grep -F "sc-code-details" /tmp/simple-mft.html
+          grep -F "sc-quiet-provenance" /tmp/simple-mft.html
           grep -F "Primary cross-object API contract" /tmp/forge-api.html
 
           printf 'LIVE_URL=%s\n' "$base"
           printf 'CAD_URL=%smodels/plate/\n' "$base"
+          printf 'SIMPLE_MFT_URL=%smodels/simple-mft/\n' "$base"
           printf 'FORGE_URL=%sdocs/forge-api/\n' "$base"
