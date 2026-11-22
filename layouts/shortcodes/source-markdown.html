@@ -1,0 +1,6 @@
+{{- $path := .Get "path" -}}
+{{- with resources.Get $path -}}
+  {{- $.Page.RenderString .Content -}}
+{{- else -}}
+  {{- errorf "source-markdown: resource %q not found" $path -}}
+{{- end -}}

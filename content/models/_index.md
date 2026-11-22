@@ -1,4 +1,7 @@
 ---
 title: "CAD models"
-description: "The complete model catalogue generated from model-owned model.yml files."
+description: "Real model metadata and source from the pinned SolidCraft CAD repository."
 ---
+
+The experiment keeps the existing model routes but uses a custom CAD page type
+inside the shared Hextra shell.

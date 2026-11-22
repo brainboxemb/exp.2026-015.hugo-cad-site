@@ -1,43 +1,37 @@
-# Hugo + Blowfish CAD site experiment
+# Hextra SolidCraft site experiment
 
-This repository is an isolated presentation experiment for
-`brainboxemb/2026-011-02.cad.solidcraft`.
+This repository is an isolated presentation experiment for the SolidCraft CAD
+and Forge repositories.
 
-The experiment answers one architecture question: can Hugo + Blowfish render
-the CAD catalogue **directly from model-owned `model.yml` files**, without a
-second Python catalogue or generated Markdown layer?
+## Status
 
-## Pinned inputs
+**Proof in progress.**
 
-- Hugo Extended: 0.169.0
-- Blowfish: v3.10.0
-- CAD metadata source: `f6548557daa77f2e3ebb9e1823e26702e66a8d76`
+Do not treat this experiment as complete until the GitHub Actions
+`verify-live` job has successfully fetched the public GitHub Pages routes over
+HTTPS.
 
-The build workflow checks out that exact CAD commit under `sources/cad/`.
-Hugo mounts `sources/cad/models` into its data tree. The content adapter at
-`content/models/_content.gotmpl` creates the public model routes in memory.
+## Question
 
-No CAD is executed here and this repository does not own CAD-CI or durable
-build publication.
+Can one pinned Hextra release provide a small shared Hugo shell while CAD and
+Forge keep different page types?
 
-## Mapping
+The proof deliberately uses real source:
 
-```text
-models/basic/plate/model.yml
-  -> /models/plate/
+- Hextra `v0.13.0`;
+- CAD source `b627544423523ce54d2366ad4ae52d233532c54a`;
+- CAD build scope `b00fa56ac62eb34ed405f87a2a4f2dc3efa3d23f`;
+- Forge source `156a4bfd316dbe711932f58990328e5711385751`.
 
-models/components/guide_rail/model.yml
-  -> /models/guide-rail/
-  -> /models/guide-rail-makita/
+## Proof pages
 
-models/advanced/simple_mft/model.yml
-  -> /models/simple-mft/
-  -> /models/simple-mft-assembly/
-```
+- `/models/plate/` — custom CAD layout showing the actual SCPF Python source,
+  generated SolidCraft commands, build image and provenance.
+- `/docs/forge-api/` — Hextra's documentation layout rendering the actual
+  Forge `docs/api.md`.
 
-Single-variant slugs are derived mechanically from their physical root
-directory by replacing underscores with hyphens. Multi-variant public slugs are
-already the keys in `model.yml:variants`.
+There is no Node/npm build in this repository. Hextra is consumed as a pinned
+Hugo Module.
 
-The demo also creates the existing category routes:
-`/models/basic/`, `/models/components/`, and `/models/advanced/`.
+The workflow publishes to GitHub Pages and then checks the public routes. A
+successful Hugo build by itself is not acceptance.

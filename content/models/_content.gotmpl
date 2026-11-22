@@ -1,4 +1,4 @@
-{{/* Generate the model catalogue directly from the mounted CAD data tree. */}}
+{{/* Generate model routes directly from pinned model.yml data. */}}
 {{ $catalog := hugo.Data.cad.models }}
 {{ $categoryTitles := dict
   "basic" "Basic Models"
@@ -6,62 +6,43 @@
   "advanced" "Advanced Models"
 }}
 
-{{/* Keep the existing category routes without moving model detail routes. */}}
 {{ range $section := slice "basic" "components" "advanced" }}
-  {{ $page := dict
+  {{ $.AddPage (dict
     "kind" "page"
     "path" $section
     "title" (index $categoryTitles $section)
-    "params" (dict
-      "categoryIndex" true
-      "cadSection" $section
-    )
-  }}
-  {{ $.AddPage $page }}
+    "params" (dict "categoryIndex" true "cadSection" $section)
+  ) }}
 {{ end }}
 
 {{ range $section, $roots := $catalog }}
   {{ range $rootName, $rootData := $roots }}
     {{ with $meta := index $rootData "model" }}
+      {{ $entries := slice }}
       {{ with $variants := index $meta "variants" }}
         {{ range $slug, $variant := $variants }}
-          {{ $content := dict
-            "mediaType" "text/markdown"
-            "value" (index $variant "description")
-          }}
-          {{ $page := dict
-            "content" $content
-            "kind" "page"
-            "path" $slug
-            "title" (index $variant "title")
-            "params" (dict
-              "model" $variant
-              "cadSection" $section
-              "cadRoot" $rootName
-              "cadSlug" $slug
-            )
-          }}
-          {{ $.AddPage $page }}
+          {{ $entries = $entries | append (dict "slug" $slug "model" $variant) }}
         {{ end }}
       {{ else }}
         {{ $slug := strings.Replace $rootName "_" "-" }}
-        {{ $content := dict
-          "mediaType" "text/markdown"
-          "value" (index $meta "description")
-        }}
-        {{ $page := dict
-          "content" $content
+        {{ $entries = $entries | append (dict "slug" $slug "model" $meta) }}
+      {{ end }}
+
+      {{ range $entry := $entries }}
+        {{ $slug := index $entry "slug" }}
+        {{ $model := index $entry "model" }}
+        {{ $.AddPage (dict
+          "content" (dict "mediaType" "text/markdown" "value" (index $model "description"))
           "kind" "page"
           "path" $slug
-          "title" (index $meta "title")
+          "title" (index $model "title")
           "params" (dict
-            "model" $meta
+            "model" $model
             "cadSection" $section
             "cadRoot" $rootName
             "cadSlug" $slug
           )
-        }}
-        {{ $.AddPage $page }}
+        ) }}
       {{ end }}
     {{ end }}
   {{ end }}

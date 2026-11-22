@@ -1,14 +1,19 @@
 ---
-title: "CAD models, directly from model.yml"
-heroCaption: "SolidCraft CAD · Blowfish experiment"
-heroLead: "One Hugo site, one model-owned metadata source, no Python page catalogue."
+title: "SolidCraft Hextra proof"
+layout: "hextra-home"
 ---
 
-This experiment renders the real CAD model catalogue from the YAML files that
-live beside each model.
+# One Hugo base for CAD and Forge
 
-[Browse all models](models/) · [Basic](models/basic/) ·
-[Components](models/components/) · [Advanced](models/advanced/)
+This experiment checks whether Hextra can provide one small shared shell while
+CAD and Forge keep their own page types.
 
-The purpose is architectural as much as visual: edits to `model.yml` should
-change the site without creating a second model registry or rebuilding CAD.
+The proof uses **real pinned source** rather than demo text:
+
+- [CAD model proof](models/plate/) — actual SCPF source, generated SolidCraft
+  commands, native build image and provenance.
+- [Forge documentation proof](docs/forge-api/) — the actual Forge
+  `docs/api.md` rendered with Hextra's documentation layout.
+
+A successful build is not enough. The experiment is accepted only after the
+workflow verifies these routes on the public GitHub Pages site.
