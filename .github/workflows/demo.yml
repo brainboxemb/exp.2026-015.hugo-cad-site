@@ -74,7 +74,8 @@ jobs:
           test -s public/docs/forge-api/index.html
 
           grep -F "One Hugo base for CAD and Forge" public/index.html
-          grep -F "class Plate" public/models/plate/index.html
+          grep -F "Explicit world positions keep this compact comparison model simple." public/models/plate/index.html
+          grep -F "parameters.add" public/models/plate/index.html
           grep -F "Generated SolidCraft commands" public/models/plate/index.html
           grep -F "Semantic verification" public/models/plate/index.html
           grep -F "Primary cross-object API contract" public/docs/forge-api/index.html
@@ -143,7 +144,8 @@ jobs:
           fetch "docs/forge-api/" /tmp/forge-api.html
 
           grep -F "One Hugo base for CAD and Forge" /tmp/home.html
-          grep -F "class Plate" /tmp/plate.html
+          grep -F "Explicit world positions keep this compact comparison model simple." /tmp/plate.html
+          grep -F "parameters.add" /tmp/plate.html
           grep -F "Generated SolidCraft commands" /tmp/plate.html
           grep -F "Primary cross-object API contract" /tmp/forge-api.html
 
