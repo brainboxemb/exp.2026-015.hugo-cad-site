@@ -142,3 +142,34 @@ Do not port individual CSS fixes to
 `2026-011-02.cad.solidcraft/dev-ci`. Port the accepted generic layout,
 content conventions and screenshot verification as one coherent change.
 
+
+
+## Issue #29 — restored backup baseline
+
+The restored CAD publication is the visual reference for model-detail pages.
+This EXP round deliberately reverses the earlier redesign and preserves the
+backup information architecture.
+
+Required presentation:
+
+- compact status badges rather than the later free-form facts row;
+- Model preview and Files/Construction stages remain the familiar top cards;
+- Open in SolidCraft Web remains framed;
+- optional Background remains framed;
+- Reference and 2D expectation remains a framed two-column comparison;
+- SCPF source is visible by default and framed;
+- SCPC source is visible by default when present;
+- generated SolidCraft commands may be collapsed;
+- standalone section ordinals are not used;
+- build evidence remains framed and readable.
+
+Only explicit fixes are allowed in this round:
+
+- consistent CAD body/heading typography;
+- preview geometry independent from heading height;
+- remove stray section-number presentation;
+- keep command disclosure readable;
+- deterministic rendered screenshots for Plate and Simple MFT.
+
+No CAD repository layout change may be started until the EXP screenshots/live
+EXP result are explicitly approved by the user.
