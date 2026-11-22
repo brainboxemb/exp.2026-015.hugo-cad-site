@@ -5,11 +5,12 @@ and Forge repositories.
 
 ## Status
 
-**Branch-publication correction in progress.**
+**Accepted Hextra/CAD presentation proof.**
 
-Accepted workflow run: `45032914709`.
+Accepted workflow run: #80 (`45069974361`).
 
-The Hextra content proof is accepted, but publication is being corrected so the generated site is retained visibly in the repository.
+That run built the site, published the exact generated tree to `gh-pages`,
+deployed GitHub Pages and verified the public routes over HTTPS.
 
 The final publication gate is:
 
@@ -22,6 +23,7 @@ Public proof:
 
 - https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/
 - https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/models/plate/
+- https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/models/simple-mft/
 - https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/docs/forge-api/
 
 ## Result
@@ -36,12 +38,17 @@ The proof uses real pinned source:
 - CAD build scope `b00fa56ac62eb34ed405f87a2a4f2dc3efa3d23f`;
 - Forge source `156a4bfd316dbe711932f58990328e5711385751`.
 
-The CAD proof page uses a repository-owned custom layout and shows:
+The CAD proof uses one generic model-detail layout for both Plate and Simple
+MFT. It shows:
 
-- actual SCPF Python source;
-- actual generated SolidCraft command JSON;
-- actual SolidCraft build image;
-- actual provenance and verification state.
+- actual SCPF Python source, collapsed by default;
+- actual generated SolidCraft commands, collapsed by default;
+- actual SolidCraft build images;
+- actual provenance and verification state;
+- model-owned Background/reference content when present.
+
+Rendered screenshot evidence for Plate and Simple MFT is produced by the normal
+CI workflow before publication.
 
 The Forge proof page uses Hextra's normal documentation layout and renders the
 actual Forge `docs/api.md`, including its code blocks and section structure.
