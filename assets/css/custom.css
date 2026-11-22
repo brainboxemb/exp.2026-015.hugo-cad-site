@@ -118,3 +118,28 @@ html:not(.dark) .hextra-nav-container-blur{
   .sc-web-panel{grid-template-columns:1fr}
   .sc-web-actions{justify-content:flex-start;min-width:0}
 }
+
+.sc-process-strip>a{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  grid-template-areas:"num title" "num note";
+  gap:.1rem .55rem;
+  min-width:0;
+  padding:.35rem .45rem;
+  border-radius:8px;
+  color:inherit;
+  text-decoration:none!important;
+}
+.sc-process-strip>a:hover{
+  background:var(--sc-soft);
+}
+.sc-process-strip>a:focus-visible{
+  outline:2px solid var(--sc-accent);
+  outline-offset:2px;
+}
+.sc-process-strip>a span{grid-area:num}
+.sc-process-strip>a strong{grid-area:title}
+.sc-process-strip>a small{grid-area:note}
+#scpf-source,#solidcraft-commands,#solidcraft-result{
+  scroll-margin-top:5.5rem;
+}
