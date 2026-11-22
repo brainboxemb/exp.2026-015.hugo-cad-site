@@ -5,7 +5,7 @@ This file records the accepted result of
 
 ## Status
 
-**Complete — 2026-11-22.**
+**Hextra content proof complete; branch publication correction in progress.**
 
 Accepted workflow run:
 
@@ -54,3 +54,23 @@ the normal Hextra documentation layout for API/reference/guides where it fits.
 The next work belongs in the consumer repositories and shared
 `meta.cad.solidcraft` conventions. Do not expand this experiment into a
 production owner.
+
+
+## Publication correction
+
+Generated site output must remain inspectable in the repository.
+
+Accepted publication path:
+
+```text
+main source
+  -> Hugo/Hextra build
+  -> orphan gh-pages branch
+  -> Pages artifact created from checked-out gh-pages
+  -> GitHub Pages
+  -> live HTTPS verification
+```
+
+Do not mark the publication correction complete until the `gh-pages` branch
+exists, contains the generated CAD and Forge proof pages, and the subsequent
+live verification succeeds.
