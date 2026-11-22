@@ -119,3 +119,25 @@ html:not(.dark) .hextra-nav-container-blur{
   .sc-web-actions{justify-content:flex-start;min-width:0}
 }
 
+
+
+/* All CAD routes use the same outer shell so navigation never shifts the page
+   edge or content start position. */
+.sc-page-shell{
+  padding:2.2rem 0 4rem;
+}
+.sc-model-page{
+  padding-top:1rem;
+}
+.sc-catalog-page .sc-cad-hero{
+  margin-top:0;
+}
+.sc-catalog-page .cad-category-grid{
+  margin-top:0;
+}
+.sc-catalog-page .cad-section{
+  margin:2rem 0;
+}
+.sc-catalog-page .cad-section-heading{
+  margin-bottom:.75rem;
+}
