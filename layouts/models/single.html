@@ -120,14 +120,14 @@
       {{ if gt (len $commands) 0 }}
         <details class="sc-command-details">
           <summary class="sc-btn sc-btn-soft">Expand command sequence</summary>
-          <ol class="sc-command-list">
+          <div class="sc-command-list">
             {{ range $commands }}
-              <li>
+              <div class="sc-command-step">
                 <div class="sc-command-heading"><strong><code>{{ index . "command" }}</code></strong></div>
                 {{ with index . "params" }}<pre><code>{{ . | transform.Remarshal "json" }}</code></pre>{{ end }}
-              </li>
+              </div>
             {{ end }}
-          </ol>
+          </div>
         </details>
       {{ else }}
         <p class="sc-muted">No accepted command evidence exists in the pinned build scope.</p>
