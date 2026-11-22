@@ -21,3 +21,29 @@ body{letter-spacing:-.003em}.content{font-size:.96rem;line-height:1.55}.content 
 .dark .sc-home-card,.dark .sc-card,.dark .sc-section,.dark .sc-home-flow,.dark .sc-process-strip{background:#101827;border-color:#29384d}.dark .sc-command-list>li{border-color:#29384d}.dark .sc-command-list pre,.dark .sc-provenance-grid>div{background:#0d1521;border-color:#29384d;color:#dce7f5}
 @media(max-width:800px){.sc-home,.sc-page-shell{width:min(100% - 28px,1080px)}.sc-home-grid,.sc-preview-grid{grid-template-columns:1fr}.sc-home-hero,.sc-cad-hero{padding:1.7rem 1.5rem}.sc-provenance-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.sc-home-flow,.sc-process-strip{grid-template-columns:1fr}.sc-home-flow i,.sc-process-strip i{transform:rotate(90deg);justify-self:start;margin-left:.6rem}.sc-provenance-grid{grid-template-columns:1fr}}
+
+
+/* Keep the shared Hextra header aligned with the CAD page rather than with the
+   viewport. The header is a separate white surface over the light CAD canvas. */
+html:not(.dark) body{
+  background:var(--sc-bg);
+}
+html:not(.dark) .hextra-nav-container-blur{
+  background:#fff!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+}
+.hextra-max-navbar-width{
+  width:min(1080px,calc(100% - 44px))!important;
+  max-width:1080px!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+.hextra-nav-container{
+  border-bottom:1px solid var(--sc-line);
+}
+@media(max-width:800px){
+  .hextra-max-navbar-width{
+    width:min(1080px,calc(100% - 28px))!important;
+  }
+}
