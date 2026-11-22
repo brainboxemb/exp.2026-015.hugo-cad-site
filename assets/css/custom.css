@@ -1,0 +1,21 @@
+.cad-heading { margin: 2rem 0 2.5rem; }
+.cad-heading h1 { margin-bottom: .5rem; }
+.cad-eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .75rem; opacity: .65; }
+.cad-lead { font-size: 1.25rem; max-width: 70ch; }
+.cad-badges { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 1rem; }
+.cad-badges span { border: 1px solid rgba(120,120,120,.35); border-radius: 999px; padding: .35rem .7rem; font-size: .82rem; }
+.cad-category-grid, .cad-model-grid, .cad-detail-grid, .cad-reference-grid { display: grid; gap: 1rem; }
+.cad-category-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 2.5rem; }
+.cad-model-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.cad-detail-grid, .cad-reference-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.cad-category-card, .cad-model-card, .cad-reference-grid article { border: 1px solid rgba(120,120,120,.25); border-radius: 1rem; padding: 1.1rem; text-decoration: none; background: rgba(127,127,127,.04); }
+.cad-category-card, .cad-model-card { display: flex; flex-direction: column; gap: .45rem; }
+.cad-category-card:hover, .cad-model-card:hover { border-color: rgba(59,130,246,.65); }
+.cad-card-section { text-transform: uppercase; letter-spacing: .1em; font-size: .68rem; opacity: .6; }
+.cad-model-card small { opacity: .7; }
+.cad-card-warning { font-size: .75rem; color: rgb(185, 28, 28); }
+.cad-section { margin: 2.5rem 0; }
+.cad-warning { border-left: .3rem solid rgb(220, 38, 38); padding: .8rem 1rem; margin: 1.5rem 0; background: rgba(220,38,38,.06); }
+.cad-warning p { margin-bottom: 0; }
+.cad-stages li { margin-bottom: .55rem; }
+.cad-model-detail section { margin: 2rem 0; }
