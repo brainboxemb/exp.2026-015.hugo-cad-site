@@ -1,4 +1,4 @@
-name: Blowfish demo
+name: Hextra end-to-end proof
 
 on:
   pull_request:
@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: blowfish-demo-${{ github.ref }}
+  group: hextra-proof-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -22,12 +22,28 @@ jobs:
       - name: Checkout experiment
         uses: actions/checkout@v4
 
-      - name: Checkout exact CAD metadata source
+      - name: Checkout pinned CAD source
         uses: actions/checkout@v4
         with:
           repository: brainboxemb/2026-011-02.cad.solidcraft
-          ref: f6548557daa77f2e3ebb9e1823e26702e66a8d76
+          ref: b627544423523ce54d2366ad4ae52d233532c54a
           path: sources/cad
+          fetch-depth: 1
+
+      - name: Checkout pinned CAD build scope
+        uses: actions/checkout@v4
+        with:
+          repository: brainboxemb/2026-011-02.cad.solidcraft
+          ref: b00fa56ac62eb34ed405f87a2a4f2dc3efa3d23f
+          path: sources/cad-build
+          fetch-depth: 1
+
+      - name: Checkout pinned Forge source
+        uses: actions/checkout@v4
+        with:
+          repository: brainboxemb/lib.py.solidcraft.forge
+          ref: 156a4bfd316dbe711932f58990328e5711385751
+          path: sources/forge
           fetch-depth: 1
 
       - name: Set up Go
@@ -35,39 +51,40 @@ jobs:
         with:
           go-version: "1.25.x"
 
-      - name: Set up Hugo
+      - name: Set up Hugo Extended
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: "0.169.0"
           extended: true
 
-      - name: Verify pinned theme graph
+      - name: Verify pinned Hextra module
         run: |
-          hugo mod graph
-          grep -F "github.com/nunocoracao/blowfish/v3@v3.10.0" <(hugo mod graph)
+          graph="$(hugo mod graph)"
+          printf '%s\n' "$graph"
+          grep -F "github.com/imfing/hextra@v0.13.0" <<<"$graph"
+          ! grep -F "github.com/nunocoracao/blowfish" <<<"$graph"
 
-      - name: Build
-        run: hugo --minify --printPathWarnings
+      - name: Build Hextra proof
+        run: hugo --gc --minify --printPathWarnings
 
-      - name: Verify model.yml routes and content
+      - name: Verify generated proof pages
         run: |
+          test -s public/index.html
           test -s public/models/plate/index.html
-          test -s public/models/guide-rail/index.html
-          test -s public/models/guide-rail-makita/index.html
-          test -s public/models/simple-mft/index.html
-          test -s public/models/simple-mft-assembly/index.html
-          test -s public/models/hub75-panel/index.html
-          test -s public/models/basic/index.html
-          test -s public/models/components/index.html
-          test -s public/models/advanced/index.html
-          grep -F "A rounded plate with four holes" public/models/plate/index.html
-          grep -F "WARNING — measured/reference geometry" public/models/guide-rail/index.html
-          grep -F "Reference and 2D expectation" public/models/simple-mft/index.html
+          test -s public/docs/forge-api/index.html
 
-      - name: Upload generated demo
+          grep -F "One Hugo base for CAD and Forge" public/index.html
+          grep -F "Explicit world positions keep this compact comparison model simple." public/models/plate/index.html
+          grep -F "parameters.add" public/models/plate/index.html
+          grep -F "Generated SolidCraft commands" public/models/plate/index.html
+          grep -F "Semantic verification" public/models/plate/index.html
+          grep -F "Primary cross-object API contract" public/docs/forge-api/index.html
+          grep -F "object-first assemblies" public/docs/forge-api/index.html
+
+      - name: Upload proof artifact
         uses: actions/upload-artifact@v4
         with:
-          name: blowfish-demo
+          name: hextra-proof
           path: public/
           if-no-files-found: error
 
@@ -75,8 +92,6 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
         with:
-          # The experiment repository may not have a Pages site yet.
-          # Enable it explicitly instead of requiring one manual setup click.
           enablement: true
 
       - name: Upload Pages artifact
@@ -88,11 +103,52 @@ jobs:
   deploy:
     if: github.event_name != 'pull_request'
     needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy demo
+      - name: Deploy Hextra proof
         id: deployment
         uses: actions/deploy-pages@v4
+
+  verify-live:
+    if: github.event_name != 'pull_request'
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify public Pages routes over HTTPS
+        env:
+          PAGE_URL: ${{ needs.deploy.outputs.page_url }}
+        run: |
+          set -euo pipefail
+          base="${PAGE_URL%/}/"
+
+          fetch() {
+            local path="$1"
+            local output="$2"
+            for attempt in $(seq 1 20); do
+              if curl --fail --silent --show-error --location                 --output "$output" "${base}${path}"; then
+                return 0
+              fi
+              sleep 3
+            done
+            echo "ERROR: public Pages route did not become reachable: ${base}${path}" >&2
+            return 1
+          }
+
+          fetch "" /tmp/home.html
+          fetch "models/plate/" /tmp/plate.html
+          fetch "docs/forge-api/" /tmp/forge-api.html
+
+          grep -F "One Hugo base for CAD and Forge" /tmp/home.html
+          grep -F "Explicit world positions keep this compact comparison model simple." /tmp/plate.html
+          grep -F "parameters.add" /tmp/plate.html
+          grep -F "Generated SolidCraft commands" /tmp/plate.html
+          grep -F "Primary cross-object API contract" /tmp/forge-api.html
+
+          printf 'LIVE_URL=%s\n' "$base"
+          printf 'CAD_URL=%smodels/plate/\n' "$base"
+          printf 'FORGE_URL=%sdocs/forge-api/\n' "$base"

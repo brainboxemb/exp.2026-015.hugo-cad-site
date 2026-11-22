@@ -1,30 +1,23 @@
-colorScheme = "slate"
-defaultAppearance = "light"
-autoSwitchAppearance = true
-enableSearch = true
-enableCodeCopy = true
+[theme]
+default = "light"
+displayToggle = true
 
-[header]
-  layout = "fixed"
+[navbar]
+displayTitle = true
+displayLogo = false
+width = "wide"
+
+[page]
+width = "wide"
+displayPagination = false
 
 [footer]
-  showThemeAttribution = true
-  showAppearanceSwitcher = true
+width = "wide"
+displayCopyright = true
+displayPoweredBy = false
 
-[homepage]
-  layout = "landing"
-  showRecent = false
+[search]
+type = "flexsearch"
 
-[list]
-  cardView = true
-  cardViewScreenWidth = false
-  showSummary = true
-  showBreadcrumbs = true
-
-[article]
-  showDate = false
-  showReadingTime = false
-  showWordCount = false
-  showTableOfContents = false
-  showBreadcrumbs = true
-  showTaxonomies = false
+[imageZoom]
+enable = true

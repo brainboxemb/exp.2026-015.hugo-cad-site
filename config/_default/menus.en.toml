@@ -1,19 +1,21 @@
 [[main]]
-name = "Models"
-pageRef = "models"
+name = "CAD model"
+pageRef = "/models/plate"
 weight = 10
 
 [[main]]
-name = "Basic"
-pageRef = "models/basic"
+name = "Forge API"
+pageRef = "/docs/forge-api"
 weight = 20
 
 [[main]]
-name = "Components"
-pageRef = "models/components"
+name = "Search"
 weight = 30
+[main.params]
+type = "search"
 
 [[main]]
-name = "Advanced"
-pageRef = "models/advanced"
+name = "Theme"
 weight = 40
+[main.params]
+type = "theme-toggle"

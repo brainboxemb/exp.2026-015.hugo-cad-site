@@ -1,8 +1,6 @@
 [[imports]]
-path = "github.com/nunocoracao/blowfish/v3"
+path = "github.com/imfing/hextra"
 
-# Defining project mounts replaces Hugo's defaults, so retain the standard
-# project components explicitly and add the CAD repository only as data.
 [[mounts]]
 source = "archetypes"
 target = "archetypes"
@@ -31,10 +29,26 @@ target = "layouts"
 source = "static"
 target = "static"
 
+# Shared model metadata stays data-only.
 [[mounts]]
 source = "sources/cad/models"
 target = "data/cad/models"
-# Hugo data mounts may contain only supported data formats. Restrict the
-# external CAD tree to the model-owned metadata files; Python/model source
-# remains in the CAD repository and is linked by metadata, not parsed as data.
 files = ["**/model.yml"]
+
+# The actual SCPF source remains owned by the CAD repository.
+[[mounts]]
+source = "sources/cad/models"
+target = "assets/cad-source"
+files = ["**/*.py", "**/*.svg", "**/*.png", "**/*.jpg", "**/*.jpeg", "**/*.webp"]
+
+# Accepted durable build evidence is read-only presentation input.
+[[mounts]]
+source = "sources/cad-build/main"
+target = "assets/cad-build"
+files = ["**/*.json", "**/*.png"]
+
+# The Forge API page renders the exact Markdown owned by Forge.
+[[mounts]]
+source = "sources/forge/docs"
+target = "assets/forge-docs"
+files = ["api.md"]
