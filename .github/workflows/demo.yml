@@ -70,10 +70,13 @@ jobs:
       - name: Verify generated proof pages
         run: |
           test -s public/index.html
+          test -s public/models/index.html
           test -s public/models/plate/index.html
           test -s public/docs/forge-api/index.html
 
           grep -F "CAD models and Forge reference" public/index.html
+          grep -F "class=sc-page-shell" public/models/index.html
+          grep -F "SolidCraft CAD" public/models/index.html
           grep -F "Explicit world positions keep this compact comparison model simple." public/models/plate/index.html
           grep -F "parameters.add" public/models/plate/index.html
           grep -F "SolidCraft command sequence" public/models/plate/index.html
