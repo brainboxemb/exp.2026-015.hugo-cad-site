@@ -20,12 +20,21 @@
 
   <main class="sc-proof-shell sc-model-page">
     <header class="sc-model-header">
-      <p class="sc-kicker">SCPF → SolidCraft proof</p>
-      <h1>{{ .Title }}</h1>
-      <p class="sc-lead">{{ index $m "tagline" }}</p>
-      <div class="sc-badges">
-        <span>{{ index $m "parameters" }}</span>
-        <span>{{ .Params.cadSection }}</span>
+      <div class="sc-model-heading">
+        <p class="sc-kicker">SCPF model</p>
+        <h1>{{ .Title }}</h1>
+        <p class="sc-lead">{{ index $m "tagline" }}</p>
+        <div class="sc-badges">
+          <span>{{ index $m "parameters" }}</span>
+          <span>{{ .Params.cadSection }}</span>
+        </div>
+      </div>
+      <div class="sc-model-flow" aria-label="Model build flow">
+        <span><b>1</b>SCPF</span>
+        <i>→</i>
+        <span><b>2</b>Commands</span>
+        <i>→</i>
+        <span><b>3</b>SolidCraft</span>
       </div>
     </header>
 
@@ -37,8 +46,9 @@
           <p>Build image not available in the pinned scope.</p>
         {{ end }}
       </div>
-      <div class="sc-panel">
-        <h2>What this model demonstrates</h2>
+      <div class="sc-panel sc-overview-panel">
+        <p class="sc-panel-label">Model overview</p>
+        <h2>What this SCPF model builds</h2>
         <p>{{ index $m "description" }}</p>
         <h3>Construction stages</h3>
         <ol>
@@ -48,9 +58,14 @@
     </section>
 
     <section class="sc-panel sc-code-section">
-      <p class="sc-step">1</p>
-      <h2>SCPF Python source</h2>
-      <p>The source below is read from the path declared by this model's own <code>model.yml</code>.</p>
+      <div class="sc-section-heading">
+        <p class="sc-step">1</p>
+        <div>
+          <p class="sc-panel-label">Source</p>
+          <h2>SCPF Python</h2>
+        </div>
+      </div>
+      <p>The page shows the actual source file used by this model: <code>{{ index $m "source" }}</code>.</p>
       {{ with resources.Get $sourcePath }}
         {{ highlight .Content "python" "" }}
       {{ else }}
@@ -59,9 +74,14 @@
     </section>
 
     <section class="sc-panel sc-code-section">
-      <p class="sc-step">2</p>
-      <h2>Generated SolidCraft commands</h2>
-      <p>These commands come from the accepted durable CAD build scope.</p>
+      <div class="sc-section-heading">
+        <p class="sc-step">2</p>
+        <div>
+          <p class="sc-panel-label">Generated output</p>
+          <h2>SolidCraft commands</h2>
+        </div>
+      </div>
+      <p>These are the native SolidCraft operations generated from the SCPF source.</p>
       {{ with resources.Get $commandsPath }}
         {{ highlight .Content "json" "" }}
       {{ else }}
@@ -70,8 +90,13 @@
     </section>
 
     <section class="sc-panel">
-      <p class="sc-step">3</p>
-      <h2>SolidCraft result and provenance</h2>
+      <div class="sc-section-heading">
+        <p class="sc-step">3</p>
+        <div>
+          <p class="sc-panel-label">Build result</p>
+          <h2>SolidCraft result</h2>
+        </div>
+      </div>
       {{ with resources.Get $provenancePath }}
         {{ $p := .Content | transform.Unmarshal }}
         <dl class="sc-provenance">

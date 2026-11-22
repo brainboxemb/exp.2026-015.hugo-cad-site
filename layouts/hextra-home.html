@@ -1,0 +1,67 @@
+{{ define "main" }}
+<main class="sc-home">
+  <section class="sc-home-hero">
+    <div class="sc-home-copy">
+      <p class="sc-kicker">SolidCraft engineering reference</p>
+      <h1>SCPF models and Forge documentation in one site family</h1>
+      <p class="sc-home-lead">
+        Hextra provides the shared documentation shell. CAD keeps its model pages,
+        while Forge keeps API and reference documentation built for reading code.
+      </p>
+      <div class="sc-home-actions">
+        <a class="sc-primary-action" href="{{ "models/plate/" | relURL }}">Explore a CAD model</a>
+        <a class="sc-secondary-action" href="{{ "docs/forge-api/" | relURL }}">Read the Forge API</a>
+      </div>
+    </div>
+    <div class="sc-flow-card" aria-label="SolidCraft model flow">
+      <div class="sc-flow-step">
+        <span>01</span>
+        <strong>SCPF Python</strong>
+        <small>Readable model source</small>
+      </div>
+      <div class="sc-flow-arrow">→</div>
+      <div class="sc-flow-step">
+        <span>02</span>
+        <strong>SolidCraft commands</strong>
+        <small>Generated native operations</small>
+      </div>
+      <div class="sc-flow-arrow">→</div>
+      <div class="sc-flow-step">
+        <span>03</span>
+        <strong>CAD result</strong>
+        <small>Built and verified geometry</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-home-grid">
+    <a class="sc-home-card sc-home-card-cad" href="{{ "models/plate/" | relURL }}">
+      <div>
+        <p class="sc-card-label">CAD / SCPF</p>
+        <h2>Model pages start with the code</h2>
+        <p>See the actual SCPF source, the generated SolidCraft commands, the rendered model and accepted build evidence together.</p>
+      </div>
+      <span class="sc-card-link">Open Plate model →</span>
+    </a>
+
+    <a class="sc-home-card" href="{{ "docs/forge-api/" | relURL }}">
+      <div>
+        <p class="sc-card-label">Forge</p>
+        <h2>Reference pages stay documentation-first</h2>
+        <p>API contracts, examples and code keep Hextra's sidebar, table of contents, search and documentation navigation.</p>
+      </div>
+      <span class="sc-card-link">Open Forge API →</span>
+    </a>
+  </section>
+
+  <section class="sc-home-note">
+    <p class="sc-kicker">What this proves</p>
+    <h2>Shared shell, different page types</h2>
+    <p>
+      The visual language is shared, but CAD and Forge are not forced into the
+      same layout. The CAD page is built around model source and geometry; the
+      Forge page stays optimized for technical documentation.
+    </p>
+  </section>
+</main>
+{{ end }}
