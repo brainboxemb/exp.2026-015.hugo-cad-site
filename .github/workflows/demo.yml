@@ -46,6 +46,14 @@ jobs:
           path: sources/forge
           fetch-depth: 1
 
+      - name: Checkout pinned Notes image cache
+        uses: actions/checkout@v4
+        with:
+          repository: brainboxemb/notes
+          ref: e56a0ab01ad9031578d0f3c158309ea2606cd81e
+          path: sources/notes
+          fetch-depth: 1
+
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
@@ -75,7 +83,7 @@ jobs:
           test -s public/models/simple-mft-concept/index.html
           test -s public/layout-assets/simple-mft/model.png
           test -s public/layout-assets/simple-mft/expected-top-view.svg
-          test -s public/layout-assets/simple-mft/product-reference.jpg
+          test -s public/layout-assets/simple-mft/product-reference.webp
           grep -F "sc-files-card" public/models/simple-mft-concept/index.html
           grep -F "23 commands" public/models/simple-mft-concept/index.html
           grep -F "Reference and 2D expectation" public/models/simple-mft-concept/index.html
