@@ -699,6 +699,28 @@ html:not(.dark) .hextra-search-trigger {
   height: 14px !important;
 }
 
+.sc-code-details {
+  margin-top: .75rem;
+}
+
+.sc-code-details > summary {
+  width: fit-content;
+  list-style: none;
+  cursor: pointer;
+}
+
+.sc-code-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.sc-code-details[open] > summary {
+  margin-bottom: .7rem;
+}
+
+.sc-code-details-body {
+  margin-top: 0;
+}
+
 /* Generated command timeline */
 .sc-command-details {
   margin-top: .25rem;
@@ -771,36 +793,33 @@ html:not(.dark) .hextra-search-trigger {
   font: 12px/1.45 var(--sc-font-mono);
 }
 
-/* Provenance */
+/* Provenance: technical metadata stays table-like, not dashboard-like. */
 .sc-provenance-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: .75rem;
-  margin: .9rem 0 0;
+  margin: .75rem 0 0;
+  padding: 0;
 }
 
 .sc-provenance-grid > div {
-  min-width: 0;
-  padding: .75rem;
-  border: 1px solid var(--sc-line);
-  border-radius: 8px;
-  background: #f8fafd;
+  display: grid;
+  grid-template-columns: minmax(150px, 190px) minmax(0, 1fr);
+  gap: 1rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid var(--sc-line);
+  background: transparent;
+}
+
+.sc-provenance-grid > div:last-child {
+  border-bottom: 0;
 }
 
 .sc-provenance-grid dt {
-  display: block;
-  margin-bottom: .2rem;
   color: var(--sc-muted);
-  font-size: .83rem;
+  font-size: .88rem;
 }
 
 .sc-provenance-grid dd {
+  min-width: 0;
   margin: 0;
-}
-
-.sc-provenance-grid strong,
-.sc-provenance-grid code {
-  font-size: .86rem;
   overflow-wrap: anywhere;
 }
 
