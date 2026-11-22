@@ -21,3 +21,7 @@ type = "flexsearch"
 
 [imageZoom]
 enable = true
+
+[highlight.copy]
+enable = true
+display = "always"

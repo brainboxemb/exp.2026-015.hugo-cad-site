@@ -1,5 +1,5 @@
 baseURL = "https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/"
-title = "SolidCraft Hextra proof"
+title = "SolidCraft"
 defaultContentLanguage = "en"
 enableRobotsTXT = false
 disableKinds = ["taxonomy", "term"]
@@ -9,7 +9,7 @@ disableKinds = ["taxonomy", "term"]
     noClasses = false
 
 [params]
-  description = "End-to-end Hextra proof for SolidCraft CAD and Forge documentation."
+  description = "SolidCraft CAD models and Forge documentation."
   cadSourceRepository = "brainboxemb/2026-011-02.cad.solidcraft"
   cadSourceRef = "b627544423523ce54d2366ad4ae52d233532c54a"
   cadBuildRef = "b00fa56ac62eb34ed405f87a2a4f2dc3efa3d23f"
