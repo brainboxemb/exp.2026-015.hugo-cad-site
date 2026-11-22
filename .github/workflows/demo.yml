@@ -64,6 +64,9 @@ jobs:
           grep -F "github.com/imfing/hextra@v0.13.0" <<<"$graph"
           ! grep -F "github.com/nunocoracao/blowfish" <<<"$graph"
 
+      - name: Stage Simple MFT layout assets
+        run: bash scripts/stage-layout-assets.sh
+
       - name: Build Hextra proof
         run: hugo --gc --minify --printPathWarnings
 
