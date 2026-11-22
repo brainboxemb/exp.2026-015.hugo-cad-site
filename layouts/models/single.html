@@ -55,8 +55,8 @@
     </div>
 
     <section class="sc-generic-overview">
-      <div class="sc-generic-preview">
-        <h2>Preview</h2>
+      <article class="sc-card sc-generic-preview">
+        <h2>Model preview</h2>
         <div class="sc-picture">
           {{ with $image }}
             <a href="{{ .RelPermalink }}" target="_blank" rel="noopener noreferrer">
@@ -68,11 +68,12 @@
         </div>
         <p class="sc-small">Accepted SolidCraft build image. Open the image to inspect it at full size.</p>
         <p class="sc-model-description">{{ index $m "description" }}</p>
-      </div>
+      </article>
 
-      <div class="sc-generic-side">
+      <aside class="sc-card sc-generic-side">
         <section class="sc-generic-block">
           <h2>Files</h2>
+          <p>Open the model sources and generated build artifacts.</p>
           <div class="sc-actions">
             {{ with $source }}<a class="sc-btn sc-btn-primary" href="{{ .RelPermalink }}">SCPF source</a>{{ end }}
             {{ with $commandsResource }}<a class="sc-btn sc-btn-soft" href="{{ .RelPermalink }}">Command JSON</a>{{ end }}
@@ -88,7 +89,7 @@
             {{ range index $m "stages" }}<li>{{ . }}</li>{{ end }}
           </ul>
         </section>
-      </div>
+      </aside>
     </section>
 
     {{ with $native }}
