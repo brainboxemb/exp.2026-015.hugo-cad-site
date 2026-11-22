@@ -150,7 +150,12 @@
       <h2 class="sc-section-title">SCPF source</h2>
       <p class="sc-section-lead">This is the SCPF Python source declared by this model. It generates the SolidCraft command sequence shown below.</p>
     </div>
-    {{ partial "sc/codeblock.html" (dict "lang" "python" "content" $source "label" "scpf/model.py") }}
+    <details class="sc-code-details">
+      <summary class="sc-btn sc-btn-soft">Show source</summary>
+      <div class="sc-code-details-body">
+        {{ partial "sc/codeblock.html" (dict "lang" "python" "content" $source "label" "scpf/model.py") }}
+      </div>
+    </details>
   </section>
 
   <section class="sc-section">
@@ -180,7 +185,7 @@
       <h2 class="sc-section-title">Build and verification</h2>
       <p class="sc-section-lead">These values come from the accepted CAD-CI provenance for this published build scope.</p>
     </div>
-    <dl class="sc-provenance-grid">
+    <dl class="sc-quiet-provenance">
       <div><dt>SolidCraft built</dt><dd><strong>true</strong></dd></div>
       <div><dt>SolidCraft verified</dt><dd><strong>false</strong></dd></div>
       <div><dt>Semantic verification</dt><dd><strong>not-configured</strong></dd></div>

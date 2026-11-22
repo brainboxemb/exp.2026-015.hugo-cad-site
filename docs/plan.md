@@ -122,3 +122,24 @@ That rendered proof confirms:
 
 Do not port the concept to `2026-011-02.cad.solidcraft/dev-ci` piecemeal.
 Keep iterating here and move the accepted component/layout system as one unit.
+
+
+## Generic model-detail cleanup
+
+The generic model-detail route is being brought back toward the calmer accepted
+CAD presentation instead of adding more dashboard-style UI.
+
+Tracking:
+- #20 — restore the calm generic model-detail layout;
+- #21 — remove stray section ordinals and collapse large technical code;
+- #22 — simplify build evidence/provenance;
+- #23 — capture generic model pages in the rendered screenshot lane.
+
+Visual reference:
+- the existing CAD `main` model-detail layout is the presentation baseline;
+- Hextra remains the shared shell;
+- the work here should fix typography, layout mechanics and reusable Hugo
+  structure without increasing information density.
+
+The representative regression route is `/models/plate/`. The Simple MFT
+concept stays in the screenshot lane as a second, richer model-detail reference.
