@@ -70,7 +70,7 @@ jobs:
       - name: Verify Simple MFT concept page
         run: |
           test -s public/models/simple-mft-concept/index.html
-          grep -F "Files &amp; construction" public/models/simple-mft-concept/index.html
+          grep -F "sc-files-card" public/models/simple-mft-concept/index.html
           grep -F "Reference and 2D expectation" public/models/simple-mft-concept/index.html
           grep -F "Build and verification" public/models/simple-mft-concept/index.html
 
