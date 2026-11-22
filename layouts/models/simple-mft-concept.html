@@ -6,78 +6,69 @@
 {{ $expectedImage := relURL "layout-assets/simple-mft/expected-top-view.svg" }}
 {{ $productImage := relURL "layout-assets/simple-mft/product-reference.webp" }}
 
-<article class="sc-page-shell sc-model-page">
+<article class="sc-page-shell sc-model-page sc-generic-model-page">
   <header class="sc-cad-hero">
     <p class="sc-kicker sc-kicker-light">Advanced / simple-mft</p>
     <h1>Simple MFT</h1>
     <p>805 × 555 mm reusable worktop with a 9 × 7 dog-hole grid and eight native clamp slots</p>
   </header>
 
-  <div class="sc-meta-row">
-    <span class="sc-badge">Built in SolidCraft · build dd11b07b</span>
-    <span class="sc-badge">23 commands</span>
-    <span class="sc-badge">805 × 555 × 18 mm · 59 × Ø20 · nominal 9 × 7 at 76 mm · 8 Slots ≈104 × 24 mm</span>
-
+  <div class="sc-model-facts" aria-label="Model facts">
+    <span>Built in SolidCraft · build dd11b07b</span>
+    <span>23 commands</span>
+    <span>805 × 555 × 18 mm; 59 × Ø20; nominal 9 × 7 at 76 mm; 8 Slots ≈104 × 24 mm</span>
   </div>
 
-  <section class="sc-preview-grid">
-    <article class="sc-card sc-preview-card">
-      <div class="sc-section-header">
-        <p class="sc-kicker">Preview</p>
-        <h2 class="sc-section-title">Model preview</h2>
-      </div>
+  <section class="sc-generic-overview">
+    <article class="sc-card sc-generic-preview">
+      <h2>Model preview</h2>
       <div class="sc-picture">
         <a href="{{ $modelImage }}">
           <img src="{{ $modelImage }}" alt="Simple MFT SolidCraft build">
         </a>
       </div>
+      <p class="sc-model-description">A reusable CRAFTMAKER-inspired worktop component with a native Box, four straight corner chamfers, 59 dog holes and eight diagonal Slots.</p>
     </article>
 
-    <aside class="sc-card sc-files-card">
-      <div class="sc-section-header">
-        <p class="sc-kicker">Artifacts</p>
-        <h2 class="sc-section-title">Files</h2>
-        <p class="sc-section-lead">Open the model sources and generated build artifacts.</p>
-      </div>
+    <aside class="sc-card sc-generic-side">
+      <section class="sc-generic-block">
+        <h2>Files</h2>
+        <p>Open the model sources and generated build artifacts.</p>
+        <div class="sc-actions">
+          <a class="sc-btn sc-btn-primary" href="https://github.com/brainboxemb/2026-011-02.cad.solidcraft/blob/b627544423523ce54d2366ad4ae52d233532c54a/models/advanced/simple_mft/scpf/model.py">SCPF source</a>
+          <a class="sc-btn sc-btn-soft" href="https://brainboxemb.github.io/2026-011-02.cad.solidcraft/dev-ci/models/simple-mft/solidcraft.json">Command JSON</a>
+          <a class="sc-btn sc-btn-soft" href="https://brainboxemb.github.io/2026-011-02.cad.solidcraft/dev-ci/models/simple-mft/model.sc">SolidCraft .sc</a>
+          <a class="sc-btn sc-btn-soft" href="https://brainboxemb.github.io/2026-011-02.cad.solidcraft/dev-ci/models/simple-mft/model.step">STEP</a>
+        </div>
+        <p class="sc-small">Command JSON describes the generated SolidCraft operations.<br>The .sc file is the editable SolidCraft model.</p>
+      </section>
 
-      <div class="sc-actions">
-        <a class="sc-btn sc-btn-primary" href="https://github.com/brainboxemb/2026-011-02.cad.solidcraft/blob/b627544423523ce54d2366ad4ae52d233532c54a/models/advanced/simple_mft/scpf/model.py">SCPF source</a>
-        <a class="sc-btn sc-btn-soft" href="https://brainboxemb.github.io/2026-011-02.cad.solidcraft/dev-ci/models/simple-mft/solidcraft.json">Command JSON</a>
-        <a class="sc-btn sc-btn-soft" href="https://brainboxemb.github.io/2026-011-02.cad.solidcraft/dev-ci/models/simple-mft/model.sc">SolidCraft .sc</a>
-        <a class="sc-btn sc-btn-soft" href="https://brainboxemb.github.io/2026-011-02.cad.solidcraft/dev-ci/models/simple-mft/model.step">STEP</a>
-      </div>
-      <p class="sc-help">Command JSON describes the generated SolidCraft operations; the .sc file is the editable SolidCraft model.</p>
-
-      <h3 class="sc-section-subtitle">Construction stages</h3>
-      <ul class="sc-stage-list">
-        <li>Box — 805 × 555 × 18 mm</li>
-        <li>Dog holes Sketch — one Circle seed and one native 9 × 7 rectangular pattern create 63 profiles</li>
-        <li>One selective cut uses 59 profiles and leaves the four diagonal ring-2 positions at (±152, ±152) mm</li>
-        <li>Clamp slots Sketch — one master Slot, one native sketch pattern and three mirrors create 8 Slots</li>
-        <li>Two through-all cuts — one for dog holes and one for clamp slots</li>
-        <li>Chamfer — four straight 20 × 20 mm plan-view corner cuts</li>
-      </ul>
+      <section class="sc-generic-block">
+        <h2>Construction stages</h2>
+        <ul class="sc-stage-list">
+          <li>Box — 805 × 555 × 18 mm</li>
+          <li>Dog holes Sketch — one Circle seed and one native 9 × 7 rectangular pattern create 63 profiles</li>
+          <li>One selective cut uses 59 profiles and leaves the four diagonal ring-2 positions at (±152, ±152) mm</li>
+          <li>Clamp slots Sketch — one master Slot, one native sketch pattern and three mirrors create 8 Slots</li>
+          <li>Two through-all cuts — one for dog holes and one for clamp slots</li>
+          <li>Chamfer — four straight 20 × 20 mm plan-view corner cuts</li>
+        </ul>
+      </section>
     </aside>
   </section>
 
-  <section class="sc-section sc-web-panel">
-    <div class="sc-section-header">
-      <p class="sc-kicker">SolidCraft model</p>
-      <h2 class="sc-section-title">Open in SolidCraft Web</h2>
-      <p class="sc-section-lead">The editable <code>.sc</code> model can be opened in SolidCraft's official web application at <strong>docs.solidcraft.io</strong>.</p>
-      <p class="sc-help">This is an external website. The SolidCraft web application is downloaded from SolidCraft's servers; the model file remains hosted on this GitHub Pages site.</p>
-    </div>
+  <section class="sc-document-section">
+    <h2>Open in SolidCraft Web</h2>
+    <p>The editable <code>.sc</code> model can be opened in SolidCraft's official web application at <strong>docs.solidcraft.io</strong>.</p>
+    <p class="sc-small"><strong>External website:</strong> the web app is loaded from SolidCraft's servers. The model file remains hosted on this GitHub Pages site.</p>
     <div class="sc-actions">
-      <a class="sc-btn sc-btn-primary" href="https://docs.solidcraft.io/app/?open=https%3A%2F%2Fbrainboxemb.github.io%2F2026-011-02.cad.solidcraft%2Fdev-ci%2Fmodels%2Fsimple-mft%2Fmodel.sc">Open in SolidCraft Web ↗</a>
+      <a class="sc-btn sc-btn-primary" href="https://docs.solidcraft.io/app/?open=https%3A%2F%2Fbrainboxemb.github.io%2F2026-011-02.cad.solidcraft%2Fdev-ci%2Fmodels%2Fsimple-mft%2Fmodel.sc">Open in SolidCraft Web</a>
       <a class="sc-btn sc-btn-soft" href="https://brainboxemb.github.io/2026-011-02.cad.solidcraft/dev-ci/models/simple-mft/model.sc">Download model .sc</a>
     </div>
   </section>
 
-  <section class="sc-section">
-    <div class="sc-section-header">
-      <p class="sc-kicker">Design notes</p>
-      <h2 class="sc-section-title">Background</h2>
-    </div>
+  <section class="sc-document-section">
+    <h2>Background</h2>
     <div class="sc-rich-text">
       <h3>Reference basis</h3>
       <p>The Simple MFT worktop is a photo-based study of the CRAFTMAKER ProStation S30 replacement worktop. The model covers the worktop plate, not the complete workbench.</p>
@@ -110,13 +101,9 @@
     </div>
   </section>
 
-  <section class="sc-section">
-    <div class="sc-section-header">
-      <p class="sc-kicker">Reference</p>
-      <h2 class="sc-section-title">Reference and 2D expectation</h2>
-      <p class="sc-section-lead">The 76 mm pitch, 20 mm corner cuts and ≈104 × 24 mm Slot dimensions are photo-based estimates, not manufacturer specifications.</p>
-    </div>
-
+  <section class="sc-document-section">
+    <h2>Reference and 2D expectation</h2>
+    <p class="sc-section-lead">The 76 mm pitch, 20 mm corner cuts and ≈104 × 24 mm Slot dimensions are photo-based estimates, not manufacturer specifications.</p>
     <div class="sc-reference-grid">
       <article class="sc-reference-item">
         <div class="sc-reference-visual">
@@ -144,12 +131,9 @@
     </div>
   </section>
 
-  <section class="sc-section">
-    <div class="sc-section-header">
-      <p class="sc-kicker">Source</p>
-      <h2 class="sc-section-title">SCPF source</h2>
-      <p class="sc-section-lead">This is the SCPF Python source declared by this model. It generates the SolidCraft command sequence shown below.</p>
-    </div>
+  <section class="sc-document-section sc-source-section">
+    <h2>SCPF source</h2>
+    <p class="sc-section-lead">The actual SCPF Python source used by this model.</p>
     <details class="sc-code-details">
       <summary class="sc-btn sc-btn-soft">Show source</summary>
       <div class="sc-code-details-body">
@@ -158,12 +142,9 @@
     </details>
   </section>
 
-  <section class="sc-section">
-    <div class="sc-section-header">
-      <p class="sc-kicker">Generated output</p>
-      <h2 class="sc-section-title">SolidCraft commands</h2>
-      <p class="sc-section-lead">{{ len $commandsData.commands }} generated operations · expand to inspect</p>
-    </div>
+  <section class="sc-document-section sc-command-section">
+    <h2>SolidCraft commands</h2>
+    <p class="sc-section-lead">{{ len $commandsData.commands }} generated operations.</p>
     <details class="sc-command-details">
       <summary class="sc-btn sc-btn-soft">Expand command sequence</summary>
       <ol class="sc-command-list">
@@ -179,12 +160,9 @@
     </details>
   </section>
 
-  <section class="sc-section">
-    <div class="sc-section-header">
-      <p class="sc-kicker">Accepted build evidence</p>
-      <h2 class="sc-section-title">Build and verification</h2>
-      <p class="sc-section-lead">These values come from the accepted CAD-CI provenance for this published build scope.</p>
-    </div>
+  <section class="sc-document-section sc-result-section">
+    <h2>Build and verification</h2>
+    <p class="sc-section-lead">Values from the accepted CAD-CI provenance for this published build scope.</p>
     <dl class="sc-quiet-provenance">
       <div><dt>SolidCraft built</dt><dd><strong>true</strong></dd></div>
       <div><dt>SolidCraft verified</dt><dd><strong>false</strong></dd></div>
@@ -197,11 +175,8 @@
     </dl>
   </section>
 
-  <section class="sc-section">
-    <div class="sc-section-header">
-      <p class="sc-kicker">Downloads</p>
-      <h2 class="sc-section-title">Source and downloads</h2>
-    </div>
+  <section class="sc-document-section">
+    <h2>Source and downloads</h2>
     <div class="sc-actions">
       <a class="sc-btn sc-btn-primary" href="https://github.com/brainboxemb/2026-011-02.cad.solidcraft/blob/b627544423523ce54d2366ad4ae52d233532c54a/models/advanced/simple_mft/scpf/model.py">Python source</a>
       <a class="sc-btn sc-btn-soft" href="https://brainboxemb.github.io/2026-011-02.cad.solidcraft/dev-ci/models/simple-mft/model.yml">model.yml</a>
@@ -210,7 +185,7 @@
       <a class="sc-btn sc-btn-soft" href="https://brainboxemb.github.io/2026-011-02.cad.solidcraft/dev-ci/models/simple-mft/model.step">STEP</a>
       <a class="sc-btn sc-btn-soft" href="https://brainboxemb.github.io/2026-011-02.cad.solidcraft/dev-ci/models/simple-mft/provenance.json">Build provenance</a>
     </div>
-    <p class="sc-help">Source b627544423523ce54d2366ad4ae52d233532c54a · build scope dev-ci · build dd11b07b2bb60c57896880f88a9a92c3f2e65a63</p>
+    <p class="sc-small">Source b627544423523ce54d2366ad4ae52d233532c54a · build scope dev-ci · build dd11b07b2bb60c57896880f88a9a92c3f2e65a63</p>
   </section>
 </article>
 {{ end }}
