@@ -22,7 +22,8 @@ Accepted public routes:
 - Hextra v0.13.0;
 - CAD source b627544423523ce54d2366ad4ae52d233532c54a;
 - CAD build scope b00fa56ac62eb34ed405f87a2a4f2dc3efa3d23f;
-- Forge source 156a4bfd316dbe711932f58990328e5711385751;\n- Notes generated image cache e56a0ab01ad9031578d0f3c158309ea2606cd81e for the local Simple MFT product-reference thumbnail.
+- Forge source 156a4bfd316dbe711932f58990328e5711385751;
+- Notes generated image cache e56a0ab01ad9031578d0f3c158309ea2606cd81e for the local Simple MFT product-reference thumbnail.
 
 ## Accepted evidence
 
@@ -143,3 +144,20 @@ Visual reference:
 
 The representative regression route is `/models/plate/`. The Simple MFT
 concept stays in the screenshot lane as a second, richer model-detail reference.
+
+
+### #25 — Simple MFT convergence
+
+The Simple MFT concept now uses the same calm model-detail presentation contract
+as the generic Plate route:
+
+- one compact facts row instead of status badges;
+- Model preview and Files/Construction stages use the same overview structure;
+- Open in SolidCraft Web, Background, reference, source, commands, verification
+  and downloads use ordinary document sections;
+- SCPF source and SolidCraft commands are collapsed by default;
+- build evidence uses the same quiet key/value list;
+- the two-column Reference and 2D expectation comparison remains intact.
+
+The remaining special template exists only because Simple MFT currently carries
+extra experimental content. Do not introduce a second visual system there.
