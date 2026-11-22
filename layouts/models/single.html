@@ -54,14 +54,6 @@
       {{ with index $provenance "semantic_verification" }}<span class="sc-badge">Semantic verification · {{ . }}</span>{{ end }}
     </div>
 
-    <section class="sc-process-strip" aria-label="SCPF to SolidCraft flow">
-      <div><span>1</span><strong>SCPF Python</strong><small>Model source</small></div>
-      <i>→</i>
-      <div><span>2</span><strong>SolidCraft commands</strong><small>Generated operations</small></div>
-      <i>→</i>
-      <div><span>3</span><strong>CAD result</strong><small>Built geometry</small></div>
-    </section>
-
     <section class="sc-preview-grid">
       <article class="sc-card sc-preview-card">
         <h2>Model preview</h2>
@@ -94,6 +86,22 @@
         </ol>
       </article>
     </section>
+
+    {{ with $native }}
+      {{ $nativePublic := .Permalink }}
+      <section class="sc-web-panel">
+        <div class="sc-web-copy">
+          <p class="sc-kicker">Native model</p>
+          <h2>Open this model in SolidCraft Web</h2>
+          <p>The native editable model can be opened in SolidCraft's official web application at <strong>docs.solidcraft.io</strong>.</p>
+          <p class="sc-small"><strong>External website:</strong> the web app is loaded from SolidCraft's servers. The <code>.sc</code> model remains hosted on this GitHub Pages site; it is not embedded here.</p>
+        </div>
+        <div class="sc-web-actions">
+          <a class="sc-btn sc-btn-primary" href="https://docs.solidcraft.io/app/?open={{ urlquery $nativePublic }}" target="_blank" rel="noopener noreferrer">Open in SolidCraft Web</a>
+          <a class="sc-btn sc-btn-soft" href="{{ .RelPermalink }}" download>Download native .sc</a>
+        </div>
+      </section>
+    {{ end }}
 
     <section class="sc-section sc-source-section">
       <div class="sc-section-title">

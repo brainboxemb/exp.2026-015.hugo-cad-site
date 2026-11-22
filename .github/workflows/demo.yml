@@ -79,6 +79,8 @@ jobs:
           grep -F "SolidCraft command sequence" public/models/plate/index.html
           grep -F "hextra-code-copy-btn" public/models/plate/index.html
           grep -F "Native verified" public/models/plate/index.html
+          grep -F "Open this model in SolidCraft Web" public/models/plate/index.html
+          grep -F "docs.solidcraft.io/app/?open=" public/models/plate/index.html
           grep -F "Semantic verification" public/models/plate/index.html
           grep -F "Primary cross-object API contract" public/docs/forge-api/index.html
           grep -F "object-first assemblies" public/docs/forge-api/index.html
@@ -115,6 +117,7 @@ jobs:
           grep -F "CAD models and Forge reference" published/index.html
           grep -F "SolidCraft command sequence" published/models/plate/index.html
           grep -F "hextra-code-copy-btn" published/models/plate/index.html
+          grep -F "Open this model in SolidCraft Web" published/models/plate/index.html
           grep -F "Primary cross-object API contract" published/docs/forge-api/index.html
 
       - name: Upload gh-pages branch as Pages artifact
@@ -170,6 +173,7 @@ jobs:
           grep -F "parameters.add" /tmp/plate.html
           grep -F "SolidCraft command sequence" /tmp/plate.html
           grep -F "hextra-code-copy-btn" /tmp/plate.html
+          grep -F "Open this model in SolidCraft Web" /tmp/plate.html
           grep -F "Primary cross-object API contract" /tmp/forge-api.html
 
           printf 'LIVE_URL=%s\n' "$base"
