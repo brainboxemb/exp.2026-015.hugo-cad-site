@@ -84,7 +84,9 @@ jobs:
           test -s public/layout-assets/simple-mft/model.png
           test -s public/layout-assets/simple-mft/expected-top-view.svg
           test -s public/layout-assets/simple-mft/product-reference.webp
-          grep -F "sc-files-card" public/models/simple-mft-concept/index.html
+          grep -F "sc-generic-overview" public/models/simple-mft-concept/index.html
+          grep -F "sc-code-details" public/models/simple-mft-concept/index.html
+          grep -F "sc-quiet-provenance" public/models/simple-mft-concept/index.html
           grep -F "23 commands" public/models/simple-mft-concept/index.html
           grep -F "Reference and 2D expectation" public/models/simple-mft-concept/index.html
           grep -F "Build and verification" public/models/simple-mft-concept/index.html
