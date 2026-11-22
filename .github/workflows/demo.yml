@@ -82,13 +82,16 @@ jobs:
         run: |
           test -s public/models/simple-mft/index.html
           test -s public/layout-assets/simple-mft/product-reference.webp
-          grep -F "sc-generic-overview" public/models/simple-mft/index.html
-          grep -F "sc-code-details" public/models/simple-mft/index.html
-          grep -F "sc-quiet-provenance" public/models/simple-mft/index.html
+          grep -F "cad-model-overview" public/models/simple-mft/index.html
+          grep -F "cad-source-section" public/models/simple-mft/index.html
+          grep -F "cad-verification-grid" public/models/simple-mft/index.html
+          grep -F "cad-collapsible" public/models/simple-mft/index.html
           grep -F "23 commands" public/models/simple-mft/index.html
           grep -F "Reference and 2D expectation" public/models/simple-mft/index.html
           grep -F "Build and verification" public/models/simple-mft/index.html
           grep -F "expected-top-view" public/models/simple-mft/index.html
+          grep -F "The actual SCPF Python source used by this model." public/models/simple-mft/index.html
+          ! grep -F "Show source" public/models/simple-mft/index.html
 
       - name: Capture model layouts in headless Chrome
         run: bash scripts/capture-layout.sh
@@ -115,14 +118,16 @@ jobs:
           grep -F "Model preview" public/models/plate/index.html
           grep -F "Construction stages" public/models/plate/index.html
           grep -F "parameters.add" public/models/plate/index.html
-          grep -F "SolidCraft commands" public/models/plate/index.html
-          grep -F "sc-code-details" public/models/plate/index.html
-          grep -F "sc-quiet-provenance" public/models/plate/index.html
+          grep -F "SolidCraft command sequence" public/models/plate/index.html
+          grep -F "cad-source-section" public/models/plate/index.html
+          grep -F "cad-verification-grid" public/models/plate/index.html
+          grep -F "cad-collapsible" public/models/plate/index.html
           grep -F "hextra-code-copy-btn" public/models/plate/index.html
-          grep -F "SolidCraft verified" public/models/plate/index.html
           grep -F "Open in SolidCraft Web" public/models/plate/index.html
           grep -F "docs.solidcraft.io/app/?open=" public/models/plate/index.html
           grep -F "Build and verification" public/models/plate/index.html
+          grep -F "The actual SCPF Python source used by this model." public/models/plate/index.html
+          ! grep -F "Show source" public/models/plate/index.html
           ! grep -F "sc-section-index" public/models/plate/index.html
           grep -F "Primary cross-object API contract" public/docs/forge-api/index.html
           grep -F "object-first assemblies" public/docs/forge-api/index.html
@@ -159,14 +164,14 @@ jobs:
           test -f published/.nojekyll
           grep -F "CAD models and Forge reference" published/index.html
           grep -F "Model preview" published/models/plate/index.html
-          grep -F "SolidCraft commands" published/models/plate/index.html
-          grep -F "sc-code-details" published/models/plate/index.html
-          grep -F "sc-quiet-provenance" published/models/plate/index.html
+          grep -F "SolidCraft command sequence" published/models/plate/index.html
+          grep -F "cad-source-section" published/models/plate/index.html
+          grep -F "cad-verification-grid" published/models/plate/index.html
           grep -F "hextra-code-copy-btn" published/models/plate/index.html
           grep -F "Open in SolidCraft Web" published/models/plate/index.html
           grep -F "Reference and 2D expectation" published/models/simple-mft/index.html
-          grep -F "sc-code-details" published/models/simple-mft/index.html
-          grep -F "sc-quiet-provenance" published/models/simple-mft/index.html
+          grep -F "cad-source-section" published/models/simple-mft/index.html
+          grep -F "cad-verification-grid" published/models/simple-mft/index.html
           grep -F "Primary cross-object API contract" published/docs/forge-api/index.html
 
       - name: Upload gh-pages branch as Pages artifact
@@ -223,14 +228,14 @@ jobs:
           grep -F "Model preview" /tmp/plate.html
           grep -F "Construction stages" /tmp/plate.html
           grep -F "parameters.add" /tmp/plate.html
-          grep -F "SolidCraft commands" /tmp/plate.html
-          grep -F "sc-code-details" /tmp/plate.html
-          grep -F "sc-quiet-provenance" /tmp/plate.html
+          grep -F "SolidCraft command sequence" /tmp/plate.html
+          grep -F "cad-source-section" /tmp/plate.html
+          grep -F "cad-verification-grid" /tmp/plate.html
           grep -F "hextra-code-copy-btn" /tmp/plate.html
           grep -F "Open in SolidCraft Web" /tmp/plate.html
           grep -F "Reference and 2D expectation" /tmp/simple-mft.html
-          grep -F "sc-code-details" /tmp/simple-mft.html
-          grep -F "sc-quiet-provenance" /tmp/simple-mft.html
+          grep -F "cad-source-section" /tmp/simple-mft.html
+          grep -F "cad-verification-grid" /tmp/simple-mft.html
           grep -F "Primary cross-object API contract" /tmp/forge-api.html
 
           printf 'LIVE_URL=%s\n' "$base"
