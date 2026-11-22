@@ -79,3 +79,42 @@ html:not(.dark) .hextra-nav-container-blur{
   color:var(--sc-ink);
   font-weight:450;
 }
+
+
+.sc-web-panel{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:1.5rem;
+  align-items:center;
+  margin:1.25rem 0;
+  padding:1.3rem 1.4rem;
+  border:1px solid var(--sc-line);
+  border-radius:12px;
+  background:#fff;
+  box-shadow:0 2px 7px rgba(27,56,99,.025);
+  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+}
+.sc-web-panel h2{
+  margin:.3rem 0 .55rem;
+  font-size:1.42rem;
+  letter-spacing:-.018em;
+}
+.sc-web-panel p{
+  margin:.35rem 0;
+  color:var(--sc-muted);
+}
+.sc-web-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:.55rem;
+  min-width:250px;
+}
+.dark .sc-web-panel{
+  background:#101827;
+  border-color:#29384d;
+}
+@media(max-width:800px){
+  .sc-web-panel{grid-template-columns:1fr}
+  .sc-web-actions{justify-content:flex-start;min-width:0}
+}
