@@ -109,7 +109,12 @@
       <h2>SCPF source</h2>
       <p class="sc-section-lead">The actual SCPF Python source used by this model.</p>
       {{ with $source }}
-        {{ partial "sc/codeblock.html" (dict "lang" "python" "content" .Content "label" (index $m "source")) }}
+        <details class="sc-code-details">
+          <summary class="sc-btn sc-btn-soft">Show source</summary>
+          <div class="sc-code-details-body">
+            {{ partial "sc/codeblock.html" (dict "lang" "python" "content" .Content "label" (index $m "source")) }}
+          </div>
+        </details>
       {{ else }}
         <p class="sc-muted">Source not available.</p>
       {{ end }}
