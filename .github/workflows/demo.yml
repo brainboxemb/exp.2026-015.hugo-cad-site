@@ -73,9 +73,14 @@ jobs:
       - name: Verify Simple MFT concept page
         run: |
           test -s public/models/simple-mft-concept/index.html
+          test -s public/layout-assets/simple-mft/model.png
+          test -s public/layout-assets/simple-mft/expected-top-view.svg
+          test -s public/layout-assets/simple-mft/product-reference.jpg
           grep -F "sc-files-card" public/models/simple-mft-concept/index.html
+          grep -F "23 commands" public/models/simple-mft-concept/index.html
           grep -F "Reference and 2D expectation" public/models/simple-mft-concept/index.html
           grep -F "Build and verification" public/models/simple-mft-concept/index.html
+          grep -F "layout-assets/simple-mft/model.png" public/models/simple-mft-concept/index.html
 
       - name: Capture Simple MFT layout in headless Chrome
         run: bash scripts/capture-layout.sh
