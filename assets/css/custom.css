@@ -1,281 +1,873 @@
-:root{--sc-bg:#f6f8fb;--sc-card:#fff;--sc-ink:#182235;--sc-muted:#526279;--sc-line:#dbe3ef;--sc-accent:#195eb8;--sc-accent-dark:#102d57;--sc-accent-mid:#244f80;--sc-soft:#eef5ff;--sc-green:#166534;--sc-green-bg:#e5f6e9;--sc-code:#0d1f33;--sc-code-ink:#e6eef9}
-body{letter-spacing:-.003em}.content{font-size:.96rem;line-height:1.55}.content h1,.content h2,.content h3{letter-spacing:-.015em}.hextra-nav-container{border-bottom:1px solid var(--sc-line)}.dark .hextra-nav-container{border-color:#27354a}
-.sc-kicker{margin:0;color:var(--sc-accent);font-size:.72rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.sc-kicker-light{color:#b8d9ff}.sc-muted{color:var(--sc-muted)}.sc-small{color:var(--sc-muted);font-size:.82rem;line-height:1.45}
-.sc-home,.sc-page-shell{width:min(1080px,calc(100% - 44px));margin:0 auto}.sc-home{padding:1.1rem 0 4rem}
-.sc-home-hero,.sc-cad-hero{margin:1.3rem 0 1.1rem;padding:2.35rem 2.65rem;border-radius:17px;background:linear-gradient(130deg,var(--sc-accent-dark),var(--sc-accent-mid));color:#fff}
-.sc-home-hero h1,.sc-cad-hero h1{margin:.3rem 0 .75rem;color:#fff;font-size:clamp(2.1rem,4.5vw,3rem);line-height:1.08;letter-spacing:-.035em}
-.sc-home-hero>p:not(.sc-kicker),.sc-cad-hero>p:not(.sc-kicker){max-width:760px;margin:.3rem 0;color:#dce9fa;font-size:1.03rem;line-height:1.55}.sc-cad-hero-small{padding:1.8rem 2.2rem}
-.sc-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}.sc-btn{display:inline-flex;align-items:center;min-height:38px;padding:.52rem .78rem;border-radius:8px;text-decoration:none!important;font-size:.83rem;font-weight:750}.sc-btn-primary{background:#1769c2;color:#fff!important}.sc-btn-primary:hover{background:#0f4f96}.sc-btn-light{background:#fff;color:#195eb8!important}.sc-btn-soft{background:#eaf3ff;color:#19518e!important}.sc-btn-soft:hover{background:#d7e9ff}
-.sc-home-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:.75rem;margin:1rem 0 1.4rem;padding:.95rem 1.1rem;border:1px solid var(--sc-line);border-radius:11px;background:#fff}
-.sc-home-flow>div{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"num title" "num note";gap:.1rem .55rem}.sc-home-flow span{grid-area:num;display:grid;place-items:center;width:1.65rem;height:1.65rem;border-radius:50%;background:#eaf3ff;color:#19518e;font-size:.72rem;font-weight:800}.sc-home-flow strong{grid-area:title;font-size:.86rem}.sc-home-flow small{grid-area:note;color:var(--sc-muted);font-size:.72rem}.sc-home-flow i{color:#7890ad;font-style:normal;font-weight:800}
-.sc-home-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}.sc-home-card,.sc-card,.sc-section{border:1px solid var(--sc-line);border-radius:12px;background:#fff;box-shadow:0 2px 7px rgba(27,56,99,.025)}.sc-home-card{min-height:220px;padding:1.3rem;color:inherit;text-decoration:none!important}.sc-home-card:hover{border-color:#a8c4e5;box-shadow:0 12px 28px rgba(25,44,72,.07)}.sc-home-card h2{margin:.45rem 0 .55rem;font-size:1.45rem}.sc-home-card p:not(.sc-kicker){color:var(--sc-muted);line-height:1.5}.sc-home-card>strong{display:block;margin-top:1.4rem;color:var(--sc-accent);font-size:.84rem}.sc-home-note{max-width:760px;margin-top:2.2rem;padding-top:1.5rem;border-top:1px solid var(--sc-line)}.sc-home-note h2{margin:.4rem 0 .4rem;font-size:1.3rem}.sc-home-note p:last-child{color:var(--sc-muted)}
-.sc-model-page{padding:1rem 0 4rem}.sc-meta-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0 1rem}.sc-badge{display:inline-block;max-width:100%;padding:.25rem .62rem;border-radius:999px;background:var(--sc-soft);color:#265589;font-size:.72rem;font-weight:750}.sc-badge-ok{background:var(--sc-green-bg);color:var(--sc-green)}
-.sc-preview-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.95fr);gap:1.3rem;margin:1.35rem 0 1.5rem}.sc-card{padding:1.25rem}.sc-card h2{margin:0 0 .8rem;font-size:1.42rem}.sc-card h3{margin:1.35rem 0 .55rem;font-size:1rem}.sc-card>p{color:var(--sc-muted)}
-.sc-picture{display:grid;place-items:center;height:clamp(310px,37vw,470px);margin:.2rem 0 .85rem;overflow:hidden;border:1px solid var(--sc-line);border-radius:9px;background:linear-gradient(180deg,#f4f7fb 0,#e7edf5 15%,#cfd9e6 100%)}.sc-picture a{display:flex;width:100%;height:100%;align-items:center;justify-content:center}.sc-picture img{width:100%;height:100%;object-fit:contain}.sc-stage-list{margin:.5rem 0 0;padding-left:1.35rem}.sc-stage-list li{margin:.35rem 0}
-.sc-section{margin:1.25rem 0;padding:1.25rem 1.35rem}.sc-section-title{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.25rem}.sc-section-title h2{margin:.2rem 0 0;font-size:1.5rem}.sc-section-index{display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:#eaf3ff;color:#19518e;font-size:.78rem;font-weight:800}.sc-section-lead{max-width:760px;margin:.3rem 0 1rem;color:var(--sc-muted);font-size:.88rem}
-.sc-code-frame{overflow:hidden;border:1px solid #243a55;border-radius:9px;background:var(--sc-code)}.sc-code-label{padding:.55rem .85rem;border-bottom:1px solid #28415f;background:#112945;color:#bfd4ec;font:600 .74rem/1.3 ui-monospace,SFMono-Regular,Consolas,monospace}.sc-code-block{margin:0!important;background:var(--sc-code)!important}.sc-code-block>div:first-child{margin:0!important}.sc-code-block .highlight,.sc-code-block pre{margin:0!important;border-radius:0!important;background:var(--sc-code)!important}.sc-code-block pre{max-height:44rem;overflow:auto;padding:1rem 1.05rem!important}.sc-code-block code,.sc-code-block code span{color:var(--sc-code-ink)!important}.sc-code-block code{font:13px/1.55 Consolas,"Courier New",monospace}
-.hextra-code-copy-btn-container{top:.55rem!important;right:.55rem!important;margin:0!important;opacity:1!important}.hextra-code-copy-btn{display:flex!important;align-items:center!important;gap:.35rem!important;min-height:30px;padding:.3rem .55rem!important;border:1px solid #47617e!important;border-radius:7px!important;background:#173653!important;color:#dce9f7!important}.hextra-code-copy-btn::after{content:"Copy";font-size:.7rem;font-weight:700}.hextra-code-copy-btn.copied::after{content:"Copied"}.hextra-copy-icon,.hextra-success-icon{width:14px!important;height:14px!important}
-.sc-command-list{list-style:none;margin:.4rem 0 0;padding:0;counter-reset:cmd}.sc-command-list>li{position:relative;padding:.85rem 0 .9rem 2.55rem;border-bottom:1px solid var(--sc-line)}.sc-command-list>li:last-child{border-bottom:0}.sc-command-list>li::before{counter-increment:cmd;content:counter(cmd);position:absolute;left:0;top:.85rem;display:grid;place-items:center;width:1.7rem;height:1.7rem;border-radius:50%;background:#eaf3ff;color:#19518e;font-size:.72rem;font-weight:800}.sc-command-heading{margin-bottom:.45rem}.sc-command-heading code{font-size:.82rem;color:#17375e}.sc-command-list pre{margin:.35rem 0 0;padding:.75rem .85rem;overflow:auto;border-radius:7px;background:#f4f7fb;color:#26384d;font:12px/1.45 Consolas,"Courier New",monospace}
-.sc-provenance-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:.9rem}.sc-provenance-grid>div{min-width:0;padding:.75rem;border:1px solid var(--sc-line);border-radius:8px;background:#f8fafd}.sc-provenance-grid span{display:block;margin-bottom:.2rem;color:var(--sc-muted);font-size:.7rem}.sc-provenance-grid strong,.sc-provenance-grid code{font-size:.78rem;overflow-wrap:anywhere}
-.sc-model-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem;margin:1rem 0 3rem}
-.dark .sc-home-card,.dark .sc-card,.dark .sc-section,.dark .sc-home-flow{background:#101827;border-color:#29384d}.dark .sc-command-list>li{border-color:#29384d}.dark .sc-command-list pre,.dark .sc-provenance-grid>div{background:#0d1521;border-color:#29384d;color:#dce7f5}
-@media(max-width:800px){.sc-home,.sc-page-shell{width:min(100% - 28px,1080px)}.sc-home-grid,.sc-preview-grid{grid-template-columns:1fr}.sc-home-hero,.sc-cad-hero{padding:1.7rem 1.5rem}.sc-provenance-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:620px){.sc-home-flow{grid-template-columns:1fr}.sc-home-flow i{transform:rotate(90deg);justify-self:start;margin-left:.6rem}.sc-provenance-grid{grid-template-columns:1fr}}
+/* SolidCraft CAD visual experiment on top of Hextra.
+ *
+ * One rule set owns CAD typography and spacing. Do not append corrective
+ * overrides below this file; change the component rule that owns the element.
+ */
+:root {
+  --sc-bg: #f6f8fb;
+  --sc-card: #ffffff;
+  --sc-ink: #182235;
+  --sc-muted: #526279;
+  --sc-line: #dbe3ef;
+  --sc-line-strong: #c4cfdd;
+  --sc-accent: #195eb8;
+  --sc-accent-strong: #0f4f96;
+  --sc-accent-dark: #102d57;
+  --sc-accent-mid: #244f80;
+  --sc-soft: #eef5ff;
+  --sc-soft-2: #f6f9fd;
+  --sc-green: #166534;
+  --sc-green-bg: #e5f6e9;
+  --sc-code: #0d1f33;
+  --sc-code-ink: #e6eef9;
+  --sc-font-sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --sc-font-mono: Consolas, "Courier New", monospace;
+  --sc-radius: 12px;
+  --sc-shadow: 0 2px 7px rgba(27, 56, 99, .025);
+}
 
+html:not(.dark) body {
+  background: var(--sc-bg);
+}
 
-/* Keep the shared Hextra header aligned with the CAD page rather than with the
-   viewport. The header is a separate white surface over the light CAD canvas. */
-html:not(.dark) body{
-  background:var(--sc-bg);
+body {
+  letter-spacing: 0;
 }
-html:not(.dark) .hextra-nav-container-blur{
-  background:#fff!important;
-  -webkit-backdrop-filter:none!important;
-  backdrop-filter:none!important;
+
+.content {
+  font-size: .96rem;
+  line-height: 1.56;
 }
-.hextra-max-navbar-width{
-  width:min(1080px,calc(100% - 44px))!important;
-  max-width:1080px!important;
-  padding-left:0!important;
-  padding-right:0!important;
+
+.content h1,
+.content h2,
+.content h3 {
+  letter-spacing: 0;
 }
-.hextra-nav-container{
-  border-bottom:1px solid var(--sc-line);
+
+/* Shared Hextra header */
+.hextra-nav-container {
+  border-bottom: 1px solid var(--sc-line);
 }
-@media(max-width:800px){
-  .hextra-max-navbar-width{
-    width:min(1080px,calc(100% - 28px))!important;
+
+html:not(.dark) .hextra-nav-container-blur {
+  background: #fff !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.hextra-max-navbar-width {
+  width: min(1080px, calc(100% - 44px)) !important;
+  max-width: 1080px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  font-family: var(--sc-font-sans);
+  line-height: 1.52;
+}
+
+html:not(.dark) .hextra-max-navbar-width > a:first-of-type {
+  color: #17375e !important;
+  font-size: 1.19rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+}
+
+html:not(.dark) .hextra-max-navbar-width > a:not(:first-of-type) {
+  color: #34445a !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  line-height: 1.52 !important;
+}
+
+html:not(.dark) .hextra-max-navbar-width > a:not(:first-of-type):hover {
+  color: var(--sc-accent) !important;
+}
+
+html:not(.dark) .hextra-search-trigger {
+  font-family: var(--sc-font-sans);
+  font-size: .9rem;
+}
+
+/* CAD shells: one font profile for every CAD element. */
+.sc-home,
+.sc-page-shell {
+  width: min(1080px, calc(100% - 44px));
+  margin: 0 auto;
+  color: var(--sc-ink);
+  font-family: var(--sc-font-sans);
+  font-size: 1rem;
+  line-height: 1.52;
+}
+
+.sc-home {
+  padding: 1.1rem 0 4rem;
+}
+
+.sc-page-shell {
+  padding: 2.2rem 0 4rem;
+}
+
+.sc-page-shell p,
+.sc-page-shell li,
+.sc-page-shell button,
+.sc-page-shell a,
+.sc-page-shell h1,
+.sc-page-shell h2,
+.sc-page-shell h3,
+.sc-page-shell h4,
+.sc-page-shell dt,
+.sc-page-shell dd,
+.sc-home p,
+.sc-home li,
+.sc-home a,
+.sc-home h1,
+.sc-home h2,
+.sc-home h3 {
+  font-family: var(--sc-font-sans);
+  letter-spacing: 0;
+}
+
+.sc-page-shell code,
+.sc-page-shell pre,
+.sc-page-shell kbd,
+.sc-page-shell samp {
+  font-family: var(--sc-font-mono);
+}
+
+/* Hero */
+.sc-home-hero,
+.sc-cad-hero {
+  margin: 1rem 0 1.1rem;
+  padding: 2.35rem 2.65rem;
+  border-radius: 17px;
+  background: linear-gradient(130deg, var(--sc-accent-dark), var(--sc-accent-mid));
+  color: #fff;
+}
+
+.sc-home-hero h1,
+.sc-cad-hero h1 {
+  margin: .3rem 0 .75rem;
+  color: #fff;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.14;
+  font-weight: 700;
+}
+
+.sc-home-hero > p:not(.sc-kicker),
+.sc-cad-hero > p:not(.sc-kicker) {
+  max-width: 780px;
+  margin: .3rem 0;
+  color: #dce9fa;
+  font-size: 1.08rem;
+  line-height: 1.52;
+}
+
+.sc-cad-hero-small {
+  padding: 1.8rem 2.2rem;
+}
+
+.sc-kicker {
+  margin: 0 0 .3rem;
+  color: var(--sc-accent);
+  font-size: .76rem;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: .105em !important;
+  text-transform: uppercase;
+}
+
+.sc-kicker-light {
+  color: #b8d9ff;
+}
+
+/* Buttons and metadata */
+.sc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: 1rem;
+}
+
+.sc-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 0;
+  padding: 9px 14px;
+  border-radius: 9px;
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 650;
+  text-decoration: none !important;
+}
+
+.sc-btn-primary {
+  background: #1b67c2;
+  color: #fff !important;
+}
+
+.sc-btn-primary:hover {
+  background: #15539c;
+}
+
+.sc-btn-light {
+  background: #fff;
+  color: #195eb8 !important;
+}
+
+.sc-btn-soft {
+  background: #eaf3ff;
+  color: #19518e !important;
+}
+
+.sc-btn-soft:hover {
+  background: #d7e9ff;
+}
+
+.sc-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: .75rem 0 1rem;
+}
+
+.sc-badge {
+  display: inline-block;
+  max-width: 100%;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--sc-soft);
+  color: #265589;
+  font-size: .76rem;
+  line-height: 1.52;
+  font-weight: 750;
+}
+
+.sc-badge-ok {
+  background: var(--sc-green-bg);
+  color: var(--sc-green);
+}
+
+/* Cards and full-width sections */
+.sc-card,
+.sc-section,
+.sc-web-panel,
+.sc-home-card,
+.sc-home-flow,
+.sc-reference-item {
+  border: 1px solid var(--sc-line);
+  border-radius: var(--sc-radius);
+  background: var(--sc-card);
+  box-shadow: var(--sc-shadow);
+}
+
+.sc-card {
+  padding: 1.35rem;
+}
+
+.sc-section,
+.sc-web-panel {
+  margin: 1.25rem 0;
+  padding: 1.35rem;
+}
+
+.sc-section-header {
+  margin: 0 0 1rem;
+}
+
+.sc-section-title {
+  margin: 0 0 .55rem;
+  color: var(--sc-ink);
+  font-size: 1.6rem;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.sc-section-subtitle {
+  margin: 1.2rem 0 .45rem;
+  color: var(--sc-ink);
+  font-size: 1rem;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.sc-section-lead,
+.sc-help,
+.sc-small,
+.sc-muted {
+  color: var(--sc-muted);
+}
+
+.sc-section-lead {
+  max-width: 780px;
+  margin: .2rem 0 0;
+  font-size: 1rem;
+  line-height: 1.52;
+}
+
+.sc-help,
+.sc-small {
+  margin: .55rem 0 0;
+  font-size: .86rem;
+  line-height: 1.52;
+}
+
+.sc-card > h2,
+.sc-card .sc-section-title {
+  margin-top: 0;
+}
+
+/* Model overview. Heading height never controls preview height. */
+.sc-model-page {
+  padding-top: 1rem;
+}
+
+.sc-preview-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, .95fr);
+  gap: 1.3rem;
+  align-items: start;
+  margin: 1.35rem 0 1.5rem;
+}
+
+.sc-preview-card,
+.sc-files-card {
+  min-width: 0;
+}
+
+.sc-picture {
+  display: grid;
+  place-items: center;
+  height: clamp(310px, 37vw, 470px);
+  margin: .75rem 0 .85rem;
+  overflow: hidden;
+  border: 1px solid var(--sc-line);
+  border-radius: 9px;
+  background: linear-gradient(180deg, #f4f7fb 0, #e7edf5 15%, #cfd9e6 100%);
+}
+
+.sc-picture a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.sc-picture img,
+.sc-picture svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sc-stage-list {
+  margin: .5rem 0 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+  color: var(--sc-ink);
+  font-family: var(--sc-font-sans) !important;
+  font-size: 1rem;
+  line-height: 1.52;
+  font-weight: 400;
+}
+
+.sc-stage-list li {
+  margin: .3rem 0;
+  color: var(--sc-ink);
+  font-family: var(--sc-font-sans) !important;
+  font-size: 1rem;
+  line-height: 1.52;
+  font-weight: 400;
+}
+
+.sc-stage-list li::marker {
+  color: var(--sc-accent);
+}
+
+/* SolidCraft Web uses the same section contract, with actions below copy. */
+.sc-web-panel {
+  display: block;
+}
+
+.sc-web-panel .sc-actions,
+.sc-web-actions {
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+/* Rich text is normalized so Markdown cannot reintroduce Hextra typography. */
+.sc-rich-text {
+  max-width: 78ch;
+  color: var(--sc-ink);
+  font-family: var(--sc-font-sans);
+  font-size: 1rem;
+  line-height: 1.52;
+}
+
+.sc-rich-text h2,
+.sc-rich-text h3,
+.sc-rich-text h4 {
+  margin: 1.15rem 0 .4rem;
+  color: var(--sc-ink);
+  font-family: var(--sc-font-sans) !important;
+  font-size: 1rem;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.sc-rich-text > h2:first-child,
+.sc-rich-text > h3:first-child {
+  margin-top: 0;
+}
+
+.sc-rich-text p,
+.sc-rich-text li {
+  margin-top: .45rem;
+  margin-bottom: .45rem;
+  color: var(--sc-ink);
+  font-family: var(--sc-font-sans) !important;
+  font-size: 1rem;
+  line-height: 1.52;
+  font-weight: 400;
+}
+
+.sc-rich-text ul,
+.sc-rich-text ol {
+  margin: .45rem 0 .75rem;
+  padding-left: 1.25rem;
+}
+
+.sc-rich-text li::marker {
+  color: var(--sc-accent);
+}
+
+/* References are a normal full-width section with visual items inside it. */
+.sc-reference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem;
+  margin-top: 1rem;
+}
+
+.sc-reference-item {
+  min-width: 0;
+  overflow: hidden;
+  background: #f8fafd;
+}
+
+.sc-reference-visual {
+  display: grid;
+  place-items: center;
+  height: 300px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--sc-line);
+  background: #eef3fa;
+}
+
+.sc-reference-visual img,
+.sc-reference-visual svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sc-reference-copy {
+  padding: .9rem 1rem 1rem;
+}
+
+.sc-reference-copy h3 {
+  margin: 0 0 .3rem;
+  color: var(--sc-ink);
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.sc-reference-copy p {
+  margin: 0;
+  color: var(--sc-muted);
+  font-size: .86rem;
+  line-height: 1.5;
+}
+
+/* Code */
+.sc-code-frame {
+  overflow: hidden;
+  margin-top: .9rem;
+  border: 1px solid #243a55;
+  border-radius: 9px;
+  background: var(--sc-code);
+}
+
+.sc-code-label {
+  padding: .55rem .85rem;
+  border-bottom: 1px solid #28415f;
+  background: #112945;
+  color: #bfd4ec;
+  font: 600 .74rem/1.3 var(--sc-font-mono);
+}
+
+.sc-code-block {
+  margin: 0 !important;
+  background: var(--sc-code) !important;
+}
+
+.sc-code-block > div:first-child,
+.sc-code-block .highlight,
+.sc-code-block pre {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  background: var(--sc-code) !important;
+}
+
+.sc-code-block pre {
+  max-height: 44rem;
+  overflow: auto;
+  padding: 1rem 5rem 1rem 1.05rem !important;
+}
+
+.sc-code-block code,
+.sc-code-block code span {
+  color: var(--sc-code-ink) !important;
+}
+
+.sc-code-block code {
+  font: 13px/1.55 var(--sc-font-mono);
+}
+
+.hextra-code-copy-btn-container {
+  top: .55rem !important;
+  right: .55rem !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+}
+
+.hextra-code-copy-btn {
+  display: flex !important;
+  align-items: center !important;
+  gap: .35rem !important;
+  min-height: 30px;
+  padding: .3rem .55rem !important;
+  border: 1px solid #47617e !important;
+  border-radius: 7px !important;
+  background: #173653 !important;
+  color: #dce9f7 !important;
+}
+
+.hextra-code-copy-btn::after {
+  content: "Copy";
+  font-size: .7rem;
+  font-weight: 700;
+}
+
+.hextra-code-copy-btn.copied::after {
+  content: "Copied";
+}
+
+.hextra-copy-icon,
+.hextra-success-icon {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Generated command timeline */
+.sc-command-list {
+  margin: .4rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: cmd;
+}
+
+.sc-command-list > li {
+  position: relative;
+  padding: .85rem 0 .9rem 2.55rem;
+  border-bottom: 1px solid var(--sc-line);
+}
+
+.sc-command-list > li:last-child {
+  border-bottom: 0;
+}
+
+.sc-command-list > li::before {
+  counter-increment: cmd;
+  content: counter(cmd);
+  position: absolute;
+  left: 0;
+  top: .85rem;
+  display: grid;
+  place-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: #eaf3ff;
+  color: #19518e;
+  font-size: .72rem;
+  font-weight: 800;
+}
+
+.sc-command-heading {
+  margin-bottom: .45rem;
+}
+
+.sc-command-heading code {
+  color: #17375e;
+  font-size: .95rem;
+}
+
+.sc-command-list pre {
+  margin: .35rem 0 0;
+  padding: .75rem .85rem;
+  overflow: auto;
+  border-radius: 7px;
+  background: #f4f7fb;
+  color: #26384d;
+  font: 12px/1.45 var(--sc-font-mono);
+}
+
+/* Provenance */
+.sc-provenance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .75rem;
+  margin-top: .9rem;
+}
+
+.sc-provenance-grid > div {
+  min-width: 0;
+  padding: .75rem;
+  border: 1px solid var(--sc-line);
+  border-radius: 8px;
+  background: #f8fafd;
+}
+
+.sc-provenance-grid span {
+  display: block;
+  margin-bottom: .2rem;
+  color: var(--sc-muted);
+  font-size: .83rem;
+}
+
+.sc-provenance-grid strong,
+.sc-provenance-grid code {
+  font-size: .86rem;
+  overflow-wrap: anywhere;
+}
+
+/* Home */
+.sc-home-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: .75rem;
+  margin: 1rem 0 1.4rem;
+  padding: .95rem 1.1rem;
+}
+
+.sc-home-flow > div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "num title" "num note";
+  gap: .1rem .55rem;
+}
+
+.sc-home-flow span {
+  grid-area: num;
+  display: grid;
+  place-items: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 50%;
+  background: #eaf3ff;
+  color: #19518e;
+  font-size: .72rem;
+  font-weight: 800;
+}
+
+.sc-home-flow strong {
+  grid-area: title;
+  font-size: .86rem;
+}
+
+.sc-home-flow small {
+  grid-area: note;
+  color: var(--sc-muted);
+  font-size: .72rem;
+}
+
+.sc-home-flow i {
+  color: #7890ad;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.sc-home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.sc-home-card {
+  min-height: 220px;
+  padding: 1.3rem;
+  color: inherit;
+  text-decoration: none !important;
+}
+
+.sc-home-card:hover {
+  border-color: #a8c4e5;
+  box-shadow: 0 12px 28px rgba(25, 44, 72, .07);
+}
+
+.sc-home-card h2 {
+  margin: .45rem 0 .55rem;
+  font-size: 1.45rem;
+}
+
+.sc-home-card p:not(.sc-kicker),
+.sc-home-note p:last-child {
+  color: var(--sc-muted);
+  line-height: 1.5;
+}
+
+.sc-home-card > strong {
+  display: block;
+  margin-top: 1.4rem;
+  color: var(--sc-accent);
+  font-size: .84rem;
+}
+
+.sc-home-note {
+  max-width: 760px;
+  margin-top: 2.2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--sc-line);
+}
+
+.sc-home-note h2 {
+  margin: .4rem 0;
+  font-size: 1.3rem;
+}
+
+/* Catalog */
+.cad-category-grid,
+.cad-model-grid {
+  display: grid;
+  gap: .8rem;
+}
+
+.cad-category-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin: 1rem 0 1.5rem;
+}
+
+.cad-model-grid {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  margin: 1rem 0 3rem;
+}
+
+.cad-category-card,
+.cad-model-card {
+  border: 1px solid var(--sc-line);
+  border-radius: 10px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none !important;
+  box-shadow: var(--sc-shadow);
+}
+
+.cad-category-card {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  padding: 1rem;
+}
+
+.cad-category-card span {
+  color: var(--sc-muted);
+  font-size: .86rem;
+}
+
+.cad-section {
+  margin: 2rem 0;
+}
+
+.cad-section-heading {
+  margin-bottom: .75rem;
+}
+
+.cad-section-heading h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+/* Dark */
+.dark .sc-card,
+.dark .sc-section,
+.dark .sc-web-panel,
+.dark .sc-home-card,
+.dark .sc-home-flow,
+.dark .sc-reference-item,
+.dark .cad-category-card,
+.dark .cad-model-card {
+  border-color: #29384d;
+  background: #101827;
+}
+
+.dark .sc-command-list > li {
+  border-color: #29384d;
+}
+
+.dark .sc-command-list pre,
+.dark .sc-provenance-grid > div {
+  border-color: #29384d;
+  background: #0d1521;
+  color: #dce7f5;
+}
+
+.dark .sc-reference-visual {
+  border-color: #29384d;
+  background: #0c1420;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .hextra-max-navbar-width,
+  .sc-home,
+  .sc-page-shell {
+    width: min(100% - 28px, 1080px) !important;
+  }
+
+  .sc-home-grid,
+  .sc-preview-grid,
+  .sc-reference-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-home-hero,
+  .sc-cad-hero {
+    padding: 1.7rem 1.5rem;
+  }
+
+  .sc-provenance-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
+@media (max-width: 620px) {
+  .sc-home-flow {
+    grid-template-columns: 1fr;
+  }
 
-/* Keep CAD pages on the typography used by the accepted pre-Hugo site.
-   Forge documentation can keep Hextra's documentation typography. */
-.sc-home,
-.sc-page-shell{
-  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
-}
-.sc-files-card,
-.sc-files-card h2,
-.sc-files-card h3,
-.sc-stage-list,
-.sc-stage-list li{
-  font-family:inherit;
-}
-.sc-files-card h2{
-  font-weight:750;
-  letter-spacing:-.018em;
-}
-.sc-files-card h3{
-  font-weight:700;
-  letter-spacing:-.01em;
-}
-.sc-stage-list{
-  font-size:.9rem;
-  line-height:1.48;
-}
-.sc-stage-list li{
-  margin:.28rem 0;
-  color:var(--sc-ink);
-  font-weight:450;
-}
+  .sc-home-flow i {
+    justify-self: start;
+    margin-left: .6rem;
+    transform: rotate(90deg);
+  }
 
-
-.sc-web-panel{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  gap:1.5rem;
-  align-items:center;
-  margin:1.25rem 0;
-  padding:1.3rem 1.4rem;
-  border:1px solid var(--sc-line);
-  border-radius:12px;
-  background:#fff;
-  box-shadow:0 2px 7px rgba(27,56,99,.025);
-  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
-}
-.sc-web-panel h2{
-  margin:.3rem 0 .55rem;
-  font-size:1.42rem;
-  letter-spacing:-.018em;
-}
-.sc-web-panel p{
-  margin:.35rem 0;
-  color:var(--sc-muted);
-}
-.sc-web-actions{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-  gap:.55rem;
-  min-width:250px;
-}
-.dark .sc-web-panel{
-  background:#101827;
-  border-color:#29384d;
-}
-@media(max-width:800px){
-  .sc-web-panel{grid-template-columns:1fr}
-  .sc-web-actions{justify-content:flex-start;min-width:0}
-}
-
-
-
-/* All CAD routes use the same outer shell so navigation never shifts the page
-   edge or content start position. */
-.sc-page-shell{
-  padding:2.2rem 0 4rem;
-}
-.sc-model-page{
-  padding-top:1rem;
-}
-.sc-catalog-page .sc-cad-hero{
-  margin-top:0;
-}
-.sc-catalog-page .cad-category-grid{
-  margin-top:0;
-}
-.sc-catalog-page .cad-section{
-  margin:2rem 0;
-}
-.sc-catalog-page .cad-section-heading{
-  margin-bottom:.75rem;
-}
-
-
-/* Homepage starts closer to the shared header; model/docs spacing is unchanged. */
-.sc-home>.sc-home-hero{
-  margin-top:1rem;
-}
-
-
-/* Match the accepted pre-Hugo metadata badges exactly. */
-.sc-badge{
-  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
-  font-size:.76rem;
-  font-weight:750;
-  line-height:1.52;
-  padding:4px 11px;
-}
-
-
-/* SolidCraft Web is a normal vertical content block: explanation first,
-   actions directly underneath. */
-.sc-web-panel{
-  display:block;
-}
-.sc-web-actions{
-  justify-content:flex-start;
-  min-width:0;
-  margin-top:1rem;
-}
-
-
-/* CAD typography profile from the accepted pre-Hugo site. Hextra remains the
-   docs shell, but it must not shrink or restyle CAD content. */
-.sc-home,
-.sc-page-shell{
-  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
-  font-size:1rem;
-  line-height:1.52;
-  color:var(--sc-ink);
-}
-.sc-home p,
-.sc-page-shell p,
-.sc-page-shell li{
-  line-height:1.52;
-}
-.sc-home-hero h1,
-.sc-cad-hero h1{
-  font-size:clamp(2rem,4.5vw,3rem);
-  line-height:1.14;
-  font-weight:700;
-}
-.sc-home-hero>p:not(.sc-kicker),
-.sc-cad-hero>p:not(.sc-kicker){
-  font-size:1.08rem;
-  line-height:1.52;
-}
-.sc-kicker{
-  font-size:.78rem;
-  font-weight:800;
-  letter-spacing:.11em;
-}
-.sc-card h2,
-.sc-section h2,
-.sc-web-panel h2{
-  font-size:1.6rem;
-  line-height:1.3;
-  font-weight:700;
-}
-.sc-card h3,
-.sc-section h3{
-  line-height:1.3;
-  font-weight:700;
-}
-.sc-card>p,
-.sc-web-panel p,
-.sc-section-lead{
-  font-size:1rem;
-  line-height:1.52;
-}
-.sc-small{
-  font-size:.86rem;
-  line-height:1.52;
-}
-.sc-btn{
-  padding:9px 14px;
-  min-height:0;
-  font-size:1rem;
-  line-height:1.2;
-  font-weight:650;
-  border-radius:9px;
-}
-.sc-stage-list{
-  font-size:1rem;
-  line-height:1.52;
-}
-.sc-stage-list li{
-  margin:.3rem 0;
-  font-weight:400;
-}
-.sc-command-heading code{
-  font-size:.95rem;
-}
-.sc-command-list pre{
-  font-size:12px;
-  line-height:1.45;
-}
-.sc-provenance-grid span{
-  font-size:.83rem;
-}
-.sc-provenance-grid strong,
-.sc-provenance-grid code{
-  font-size:.86rem;
-}
-
-
-/* Header typography from the accepted pre-Hugo CAD site. */
-.hextra-max-navbar-width{
-  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
-  line-height:1.52;
-}
-html:not(.dark) .hextra-max-navbar-width>a:first-of-type{
-  color:#17375e!important;
-  font-size:1.19rem!important;
-  font-weight:800!important;
-  letter-spacing:0!important;
-}
-html:not(.dark) .hextra-max-navbar-width>a:not(:first-of-type){
-  color:#34445a!important;
-  font-size:1rem!important;
-  font-weight:600!important;
-  line-height:1.52!important;
-}
-html:not(.dark) .hextra-max-navbar-width>a:not(:first-of-type):hover{
-  color:var(--sc-accent)!important;
-}
-html:not(.dark) .hextra-search-trigger{
-  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
-  font-size:.9rem;
+  .sc-provenance-grid {
+    grid-template-columns: 1fr;
+  }
 }
