@@ -132,6 +132,46 @@ jobs:
           grep -F "Primary cross-object API contract" public/docs/forge-api/index.html
           grep -F "object-first assemblies" public/docs/forge-api/index.html
 
+      - name: Build approval preview for this pull request
+        if: >-
+          github.event_name == 'pull_request'
+          && github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          PREVIEW_BASE: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/preview/pr-${{ github.event.pull_request.number }}/
+        run: |
+          rm -rf preview-public
+          hugo --gc --minify --printPathWarnings \
+            --baseURL "$PREVIEW_BASE" \
+            --destination preview-public
+
+      - name: Publish pull-request approval preview
+        if: >-
+          github.event_name == 'pull_request'
+          && github.event.pull_request.head.repo.full_name == github.repository
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./preview-public
+          destination_dir: preview/pr-${{ github.event.pull_request.number }}
+          keep_files: true
+          enable_jekyll: false
+          commit_message: "site: publish PR ${{ github.event.pull_request.number }} approval preview from ${{ github.sha }}"
+
+      - name: Add approval preview URLs to workflow summary
+        if: >-
+          github.event_name == 'pull_request'
+          && github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          base="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/preview/pr-${{ github.event.pull_request.number }}/"
+          {
+            echo "## Approval preview"
+            echo
+            echo "Plate: ${base}models/plate/"
+            echo
+            echo "Simple MFT: ${base}models/simple-mft/"
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Publish exact generated site to gh-pages
         if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
@@ -142,6 +182,43 @@ jobs:
           force_orphan: true
           enable_jekyll: false
           commit_message: "site: publish Hextra proof from ${{ github.sha }}"
+
+  stage-preview-pages:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout published gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: published
+          fetch-depth: 1
+
+      - name: Verify approval preview content
+        run: |
+          root="published/preview/pr-${{ github.event.pull_request.number }}"
+          test -s "$root/models/plate/index.html"
+          test -s "$root/models/simple-mft/index.html"
+          grep -F "cad-source-section" "$root/models/plate/index.html"
+          grep -F "cad-source-section" "$root/models/simple-mft/index.html"
+          grep -F "Reference and 2D expectation" "$root/models/simple-mft/index.html"
+
+      - name: Upload gh-pages branch as Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: published
+
+  deploy-preview:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    needs: stage-preview-pages
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/preview/pr-${{ github.event.pull_request.number }}/
+    steps:
+      - name: Deploy approval preview
+        uses: actions/deploy-pages@v4
 
   stage-pages:
     if: github.event_name != 'pull_request'
