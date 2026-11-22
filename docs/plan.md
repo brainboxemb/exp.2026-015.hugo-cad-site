@@ -102,7 +102,7 @@ Draft PR #19 is the visual proving ground for the complete Simple MFT detail
 page. It stays in this experiment until the page system is stable enough to
 port as one coherent change.
 
-Current accepted visual evidence: PR run #61 (`45065715970`).
+Current accepted visual evidence: PR run #66 (`45066184367`).
 
 That rendered proof confirms:
 
