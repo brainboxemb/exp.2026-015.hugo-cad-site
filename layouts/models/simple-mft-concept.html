@@ -150,7 +150,12 @@
       <h2 class="sc-section-title">SCPF source</h2>
       <p class="sc-section-lead">This is the SCPF Python source declared by this model. It generates the SolidCraft command sequence shown below.</p>
     </div>
-    {{ partial "sc/codeblock.html" (dict "lang" "python" "content" $source "label" "scpf/model.py") }}
+    <details class="sc-code-details">
+      <summary class="sc-btn sc-btn-soft">Show source</summary>
+      <div class="sc-code-details-body">
+        {{ partial "sc/codeblock.html" (dict "lang" "python" "content" $source "label" "scpf/model.py") }}
+      </div>
+    </details>
   </section>
 
   <section class="sc-section">
