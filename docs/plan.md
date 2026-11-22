@@ -159,5 +159,11 @@ as the generic Plate route:
 - build evidence uses the same quiet key/value list;
 - the two-column Reference and 2D expectation comparison remains intact.
 
+Accepted rendered proof: PR run #72 (`45068878682`).
+
+That run shows Plate and Simple MFT using the same quiet hierarchy while the
+Simple MFT reference comparison, source/command collapse and provenance list
+remain intact.
+
 The remaining special template exists only because Simple MFT currently carries
 extra experimental content. Do not introduce a second visual system there.
