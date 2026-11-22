@@ -161,16 +161,16 @@
     </div>
     <details class="sc-command-details">
       <summary class="sc-btn sc-btn-soft">Expand command sequence</summary>
-      <div class="sc-command-list">
+      <ol class="sc-command-list">
         {{ range $commandsData.commands }}
-          <div class="sc-command-step">
+          <li>
             <div class="sc-command-heading"><strong><code>{{ .command }}</code></strong></div>
             {{ if gt (len .params) 0 }}
               <pre><code>{{ jsonify (dict "indent" "   ") .params }}</code></pre>
             {{ end }}
-          </div>
+          </li>
         {{ end }}
-      </div>
+      </ol>
     </details>
   </section>
 
