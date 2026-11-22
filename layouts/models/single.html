@@ -105,6 +105,70 @@
       </section>
     {{ end }}
 
+    {{ $detailPath := printf "model-details/%s.md" .Params.cadSlug }}
+    {{ with resources.Get $detailPath }}
+      <section class="sc-document-section">
+        <h2>Background</h2>
+        <div class="sc-rich-text">{{ $.RenderString .Content }}</div>
+      </section>
+    {{ end }}
+
+    {{ with $views := index $m "extra_views" }}
+      <section class="sc-document-section">
+        <h2>{{ index $views "title" }}</h2>
+        {{ with index $views "note" }}<p class="sc-section-lead">{{ . }}</p>{{ end }}
+        <div class="sc-reference-grid">
+          {{ range $view := index $views "items" }}
+            {{ $kind := index $view "kind" }}
+            {{ $src := index $view "src" }}
+            {{ $caption := index $view "caption" }}
+            {{ $alt := index $view "alt" }}
+
+            {{ if eq $kind "url" }}
+              {{ $displaySrc := $src }}
+              {{ range site.Data.cad.reference_cache.references }}
+                {{ if eq (index . "source") $src }}
+                  {{ $displaySrc = relURL (index . "local") }}
+                  {{ with index . "caption" }}{{ $caption = . }}{{ end }}
+                {{ end }}
+              {{ end }}
+
+              {{ $lower := lower $displaySrc }}
+              {{ $isImage := or (strings.HasSuffix $lower ".jpg") (strings.HasSuffix $lower ".jpeg") (strings.HasSuffix $lower ".png") (strings.HasSuffix $lower ".webp") (strings.HasSuffix $lower ".svg") }}
+              <article class="sc-reference-item">
+                {{ if $isImage }}
+                  <div class="sc-reference-visual">
+                    <a href="{{ $displaySrc }}"><img src="{{ $displaySrc }}" alt="{{ $alt }}"></a>
+                  </div>
+                  <div class="sc-reference-copy"><h3>{{ $caption }}</h3></div>
+                {{ else }}
+                  <div class="sc-reference-copy">
+                    <h3>{{ $caption }}</h3>
+                    <p><a href="{{ $src }}">Open external reference</a></p>
+                  </div>
+                {{ end }}
+              </article>
+            {{ else }}
+              {{ $assetPath := printf "cad-source/%s/%s/%s" $.Params.cadSection $.Params.cadRoot $src }}
+              <article class="sc-reference-item">
+                {{ with resources.Get $assetPath }}
+                  <div class="sc-reference-visual">
+                    <a href="{{ .RelPermalink }}"><img src="{{ .RelPermalink }}" alt="{{ $alt }}"></a>
+                  </div>
+                  <div class="sc-reference-copy"><h3>{{ $caption }}</h3></div>
+                {{ else }}
+                  <div class="sc-reference-copy">
+                    <h3>{{ $caption }}</h3>
+                    <p class="sc-muted">This declared view is not present in the pinned source.</p>
+                  </div>
+                {{ end }}
+              </article>
+            {{ end }}
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+
     <section class="sc-document-section sc-source-section">
       <h2>SCPF source</h2>
       <p class="sc-section-lead">The actual SCPF Python source used by this model.</p>
