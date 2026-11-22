@@ -78,19 +78,19 @@ jobs:
       - name: Build Hextra proof
         run: hugo --gc --minify --printPathWarnings
 
-      - name: Verify Simple MFT concept page
+      - name: Verify generated Simple MFT page
         run: |
-          test -s public/models/simple-mft-concept/index.html
+          test -s public/models/simple-mft/index.html
           test -s public/layout-assets/simple-mft/model.png
           test -s public/layout-assets/simple-mft/expected-top-view.svg
           test -s public/layout-assets/simple-mft/product-reference.webp
-          grep -F "sc-generic-overview" public/models/simple-mft-concept/index.html
-          grep -F "sc-code-details" public/models/simple-mft-concept/index.html
-          grep -F "sc-quiet-provenance" public/models/simple-mft-concept/index.html
-          grep -F "23 commands" public/models/simple-mft-concept/index.html
-          grep -F "Reference and 2D expectation" public/models/simple-mft-concept/index.html
-          grep -F "Build and verification" public/models/simple-mft-concept/index.html
-          grep -F "layout-assets/simple-mft/model.png" public/models/simple-mft-concept/index.html
+          grep -F "sc-generic-overview" public/models/simple-mft/index.html
+          grep -F "sc-code-details" public/models/simple-mft/index.html
+          grep -F "sc-quiet-provenance" public/models/simple-mft/index.html
+          grep -F "23 commands" public/models/simple-mft/index.html
+          grep -F "Reference and 2D expectation" public/models/simple-mft/index.html
+          grep -F "Build and verification" public/models/simple-mft/index.html
+          grep -F "expected-top-view" public/models/simple-mft/index.html
 
       - name: Capture model layouts in headless Chrome
         run: bash scripts/capture-layout.sh
