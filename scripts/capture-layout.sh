@@ -30,7 +30,7 @@ python - <<'PY'
 import time
 import urllib.request
 
-url = "http://127.0.0.1:8765/exp.2026-015.hugo-cad-site/models/simple-mft-concept/"
+url = "http://127.0.0.1:8765/exp.2026-015.hugo-cad-site/models/simple-mft/"
 for _ in range(40):
     try:
         with urllib.request.urlopen(url, timeout=1) as response:
@@ -72,18 +72,18 @@ run_chrome() {
   return "$status"
 }
 
-simple_url="http://127.0.0.1:${port}/${repo_path}/models/simple-mft-concept/"
+simple_url="http://127.0.0.1:${port}/${repo_path}/models/simple-mft/"
 plate_url="http://127.0.0.1:${port}/${repo_path}/models/plate/"
 
-# Concept reference.
+# Generated Simple MFT reference.
 run_chrome \
   --window-size=1600,1400 \
-  --screenshot="$PWD/$artifact_dir/simple-mft-concept-overview.png" \
+  --screenshot="$PWD/$artifact_dir/simple-mft-overview.png" \
   "$simple_url"
 
 run_chrome \
   --window-size=1600,12000 \
-  --screenshot="$PWD/$artifact_dir/simple-mft-concept-full.png" \
+  --screenshot="$PWD/$artifact_dir/simple-mft-full.png" \
   "$simple_url"
 
 # Generic model-detail route under review.
@@ -97,8 +97,8 @@ run_chrome \
   --screenshot="$PWD/$artifact_dir/plate-full.png" \
   "$plate_url"
 
-test -s "$artifact_dir/simple-mft-concept-overview.png"
-test -s "$artifact_dir/simple-mft-concept-full.png"
+test -s "$artifact_dir/simple-mft-overview.png"
+test -s "$artifact_dir/simple-mft-full.png"
 test -s "$artifact_dir/plate-overview.png"
 test -s "$artifact_dir/plate-full.png"
 
