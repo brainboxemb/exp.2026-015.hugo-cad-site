@@ -92,15 +92,10 @@ jobs:
           enable_jekyll: false
           commit_message: "site: publish Hextra proof from ${{ github.sha }}"
 
-  deploy:
+  stage-pages:
     if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    outputs:
-      page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout published gh-pages branch
         uses: actions/checkout@v4
@@ -124,6 +119,16 @@ jobs:
         with:
           path: published
 
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: stage-pages
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy published branch
         id: deployment
         uses: actions/deploy-pages@v4
