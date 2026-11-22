@@ -19,35 +19,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Ensure Pages is workflow-owned
-        if: github.event_name != 'pull_request'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          api="https://api.github.com/repos/${GITHUB_REPOSITORY}/pages"
-          curl --fail-with-body --silent --show-error --location \
-            --request PUT \
-            --header "Accept: application/vnd.github+json" \
-            --header "Authorization: Bearer ${GH_TOKEN}" \
-            --header "X-GitHub-Api-Version: 2022-11-28" \
-            "${api}" \
-            --data '{"build_type":"workflow"}'
-
-          curl --fail-with-body --silent --show-error --location \
-            --header "Accept: application/vnd.github+json" \
-            --header "Authorization: Bearer ${GH_TOKEN}" \
-            --header "X-GitHub-Api-Version: 2022-11-28" \
-            "${api}" > /tmp/pages.json
-
-          python - <<'PY'
-          import json
-          with open("/tmp/pages.json", encoding="utf-8") as handle:
-              config = json.load(handle)
-          assert config.get("build_type") == "workflow", config
-          print("Pages build_type=workflow")
-          PY
-
       - name: Checkout experiment
         uses: actions/checkout@v4
 
