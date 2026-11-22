@@ -253,3 +253,29 @@ html:not(.dark) .hextra-nav-container-blur{
 .sc-provenance-grid code{
   font-size:.86rem;
 }
+
+
+/* Header typography from the accepted pre-Hugo CAD site. */
+.hextra-max-navbar-width{
+  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  line-height:1.52;
+}
+html:not(.dark) .hextra-max-navbar-width>a:first-of-type{
+  color:#17375e!important;
+  font-size:1.19rem!important;
+  font-weight:800!important;
+  letter-spacing:0!important;
+}
+html:not(.dark) .hextra-max-navbar-width>a:not(:first-of-type){
+  color:#34445a!important;
+  font-size:1rem!important;
+  font-weight:600!important;
+  line-height:1.52!important;
+}
+html:not(.dark) .hextra-max-navbar-width>a:not(:first-of-type):hover{
+  color:var(--sc-accent)!important;
+}
+html:not(.dark) .hextra-search-trigger{
+  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:.9rem;
+}
