@@ -7,11 +7,11 @@ This file records the accepted result of
 
 **Hextra/CAD presentation baseline accepted in the experiment.**
 
-Current accepted main deployment before #27:
+Accepted main deployment:
 
-- run #74 (`45069100466`);
-- build, `gh-pages` publication, Pages deployment and live HTTPS verification
-  all succeeded.
+- run #80 (`45069974361`);
+- build, rendered Plate/Simple-MFT screenshots, `gh-pages` publication, Pages
+  deployment and live HTTPS verification all succeeded.
 
 Accepted public routes:
 
@@ -40,12 +40,17 @@ The PR build proved:
 - the CAD Plate route contains accepted provenance;
 - the Forge route renders the actual Forge docs/api.md.
 
-Main run `45032914709` then proved:
+Main run #80 (`45069974361`) proves the current accepted baseline:
 
 - Hugo build success;
-- GitHub Pages deployment success;
-- post-deploy HTTPS retrieval success for all three public proof routes;
-- expected CAD source/command content is present on the live CAD route;
+- generated Plate and Simple MFT model-detail routes pass rendered screenshot
+  verification;
+- the exact generated tree is retained on `gh-pages`;
+- GitHub Pages deployment succeeds;
+- live HTTPS retrieval succeeds for the homepage, Plate, Simple MFT and Forge
+  API routes;
+- expected CAD source/command/reference/provenance content is present on the
+  live model routes;
 - expected Forge API content is present on the live Forge route.
 
 ## Conclusion
@@ -75,9 +80,8 @@ main source
   -> live HTTPS verification
 ```
 
-Do not mark the publication correction complete until the `gh-pages` branch
-exists, contains the generated CAD and Forge proof pages, and the subsequent
-live verification succeeds.
+This publication path is accepted. Run #80 verifies the generated `gh-pages`
+branch and subsequent live deployment over HTTPS.
 
 
 ## Model-detail visual verification
@@ -131,7 +135,8 @@ The temporary `/models/simple-mft-concept/` page and its dedicated layout have
 been removed.
 
 PR #27 run #78 (`45069700337`) proves the generated Plate and Simple MFT
-routes together after that removal.
+routes together after that removal. Main run #80 (`45069974361`) then proves
+the same generated routes after publication and live deployment.
 
 Do not port individual CSS fixes to
 `2026-011-02.cad.solidcraft/dev-ci`. Port the accepted generic layout,
