@@ -105,7 +105,7 @@
           <p class="sc-small"><strong>External website:</strong> the web app is loaded from SolidCraft's servers. The <code>.sc</code> model remains hosted on this GitHub Pages site; it is not embedded here.</p>
         </div>
         <div class="sc-web-actions">
-          <a class="sc-btn sc-btn-primary" href="https://docs.solidcraft.io/app/?open={{ $nativePublic | urls.QueryEscape }}" target="_blank" rel="noopener noreferrer">Open in SolidCraft Web</a>
+          <a class="sc-btn sc-btn-primary" href="https://docs.solidcraft.io/app/?open={{ urlquery $nativePublic }}" target="_blank" rel="noopener noreferrer">Open in SolidCraft Web</a>
           <a class="sc-btn sc-btn-soft" href="{{ .RelPermalink }}" download>Download native .sc</a>
         </div>
       </section>
