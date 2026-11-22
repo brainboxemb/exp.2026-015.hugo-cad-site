@@ -95,6 +95,22 @@
       </article>
     </section>
 
+    {{ with $native }}
+      {{ $nativePublic := .Permalink }}
+      <section class="sc-web-panel">
+        <div class="sc-web-copy">
+          <p class="sc-kicker">Native model</p>
+          <h2>Open this model in SolidCraft Web</h2>
+          <p>The native editable model can be opened in SolidCraft's official web application at <strong>docs.solidcraft.io</strong>.</p>
+          <p class="sc-small"><strong>External website:</strong> the web app is loaded from SolidCraft's servers. The <code>.sc</code> model remains hosted on this GitHub Pages site; it is not embedded here.</p>
+        </div>
+        <div class="sc-web-actions">
+          <a class="sc-btn sc-btn-primary" href="https://docs.solidcraft.io/app/?open={{ $nativePublic | urls.QueryEscape }}" target="_blank" rel="noopener noreferrer">Open in SolidCraft Web</a>
+          <a class="sc-btn sc-btn-soft" href="{{ .RelPermalink }}" download>Download native .sc</a>
+        </div>
+      </section>
+    {{ end }}
+
     <section class="sc-section sc-source-section">
       <div class="sc-section-title">
         <div>
