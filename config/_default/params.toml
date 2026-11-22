@@ -13,7 +13,7 @@ displayPagination = false
 
 [footer]
 width = "wide"
-displayCopyright = true
+displayCopyright = false
 displayPoweredBy = false
 
 [search]

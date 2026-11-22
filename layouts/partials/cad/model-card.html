@@ -1,6 +1,10 @@
 {{ $m := .Params.model }}
 <a class="sc-model-card" href="{{ .RelPermalink }}">
-  <span>{{ .Params.cadSection }}</span>
+  <div class="sc-model-card-top">
+    <span>{{ .Params.cadSection }}</span>
+    <span class="sc-model-card-arrow">→</span>
+  </div>
   <strong>{{ .Title }}</strong>
   <small>{{ index $m "tagline" }}</small>
+  <em>{{ index $m "parameters" }}</em>
 </a>
