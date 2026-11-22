@@ -5,33 +5,63 @@ and Forge repositories.
 
 ## Status
 
-**Proof in progress.**
+**Completed — 2026-11-22.**
 
-Do not treat this experiment as complete until the GitHub Actions
-`verify-live` job has successfully fetched the public GitHub Pages routes over
-HTTPS.
+Accepted workflow run: `45032914709`.
 
-## Question
+The run completed all three gates:
 
-Can one pinned Hextra release provide a small shared Hugo shell while CAD and
-Forge keep different page types?
+1. build the site with pinned Hextra `v0.13.0`;
+2. deploy the generated site to GitHub Pages;
+3. fetch the public homepage, CAD model page and Forge API page over HTTPS and
+   verify real source content on those live routes.
 
-The proof deliberately uses real source:
+Public proof:
+
+- https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/
+- https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/models/plate/
+- https://brainboxemb.github.io/exp.2026-015.hugo-cad-site/docs/forge-api/
+
+## Result
+
+Hextra can provide one small shared Hugo shell while CAD and Forge keep
+different page types.
+
+The proof uses real pinned source:
 
 - Hextra `v0.13.0`;
 - CAD source `b627544423523ce54d2366ad4ae52d233532c54a`;
 - CAD build scope `b00fa56ac62eb34ed405f87a2a4f2dc3efa3d23f`;
 - Forge source `156a4bfd316dbe711932f58990328e5711385751`.
 
-## Proof pages
+The CAD proof page uses a repository-owned custom layout and shows:
 
-- `/models/plate/` — custom CAD layout showing the actual SCPF Python source,
-  generated SolidCraft commands, build image and provenance.
-- `/docs/forge-api/` — Hextra's documentation layout rendering the actual
-  Forge `docs/api.md`.
+- actual SCPF Python source;
+- actual generated SolidCraft command JSON;
+- actual SolidCraft build image;
+- actual provenance and verification state.
 
-There is no Node/npm build in this repository. Hextra is consumed as a pinned
-Hugo Module.
+The Forge proof page uses Hextra's normal documentation layout and renders the
+actual Forge `docs/api.md`, including its code blocks and section structure.
 
-The workflow publishes to GitHub Pages and then checks the public routes. A
-successful Hugo build by itself is not acceptance.
+There is no Node/npm build step in this repository. Hextra is consumed as a
+pinned Hugo Module.
+
+## Boundary proven by the experiment
+
+Shared Hextra layer:
+
+- page shell;
+- navigation;
+- documentation sidebar and table of contents;
+- search and theme controls;
+- code rendering;
+- shared base styling.
+
+Repository-owned page types:
+
+- CAD model/catalog layouts;
+- Forge API/reference/guide content and structure.
+
+The experiment remains public as decision evidence. It is not a production
+site owner.
