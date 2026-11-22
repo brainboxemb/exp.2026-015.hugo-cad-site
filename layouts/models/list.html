@@ -1,9 +1,10 @@
 {{ define "main" }}
-  <header class="cad-heading">
-    <p class="cad-eyebrow">model.yml catalogue</p>
+<main class="sc-page-shell sc-catalog-page">
+  <section class="sc-cad-hero sc-cad-hero-small">
+    <p class="sc-kicker sc-kicker-light">SolidCraft CAD</p>
     <h1>{{ .Title }}</h1>
     <p>{{ .Description }}</p>
-  </header>
+  </section>
 
   <nav class="cad-category-grid" aria-label="Model categories">
     {{ range $key := slice "basic" "components" "advanced" }}
@@ -21,7 +22,9 @@
     {{ $models := where site.RegularPages "Params.cadSection" $key }}
     {{ $models = where $models "Params.categoryIndex" "!=" true }}
     <section class="cad-section">
-      <h2>{{ (site.GetPage (printf "/models/%s" $key)).Title }}</h2>
+      <div class="cad-section-heading">
+        <h2>{{ (site.GetPage (printf "/models/%s" $key)).Title }}</h2>
+      </div>
       <div class="cad-model-grid">
         {{ range sort $models "Params.model.priority" }}
           {{ partial "cad/model-card.html" . }}
@@ -29,4 +32,5 @@
       </div>
     </section>
   {{ end }}
+</main>
 {{ end }}
