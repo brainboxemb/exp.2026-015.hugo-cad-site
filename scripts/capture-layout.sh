@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Render the generated Hugo concept page in real headless Chrome and retain
+# Render generated Hugo model pages in real headless Chrome and retain
 # screenshots as CI presentation evidence.
 #
 # Input: public/ from the normal Hugo build.
@@ -72,22 +72,35 @@ run_chrome() {
   return "$status"
 }
 
-url="http://127.0.0.1:${port}/${repo_path}/models/simple-mft-concept/"
+simple_url="http://127.0.0.1:${port}/${repo_path}/models/simple-mft-concept/"
+plate_url="http://127.0.0.1:${port}/${repo_path}/models/plate/"
 
-# Normal desktop viewport: useful for the hero and model-overview balance.
+# Concept reference.
 run_chrome \
   --window-size=1600,1400 \
   --screenshot="$PWD/$artifact_dir/simple-mft-concept-overview.png" \
-  "$url"
+  "$simple_url"
 
-# Tall capture: presentation evidence for the full section rhythm and typography.
 run_chrome \
   --window-size=1600,12000 \
   --screenshot="$PWD/$artifact_dir/simple-mft-concept-full.png" \
-  "$url"
+  "$simple_url"
+
+# Generic model-detail route under review.
+run_chrome \
+  --window-size=1600,1400 \
+  --screenshot="$PWD/$artifact_dir/plate-overview.png" \
+  "$plate_url"
+
+run_chrome \
+  --window-size=1600,9000 \
+  --screenshot="$PWD/$artifact_dir/plate-full.png" \
+  "$plate_url"
 
 test -s "$artifact_dir/simple-mft-concept-overview.png"
 test -s "$artifact_dir/simple-mft-concept-full.png"
+test -s "$artifact_dir/plate-overview.png"
+test -s "$artifact_dir/plate-full.png"
 
 if grep -Eq '"GET [^"]+" 404 ' "$artifact_dir/browser-server.log"; then
   echo "Rendered page requested one or more missing local assets:" >&2
