@@ -399,8 +399,8 @@ html:not(.dark) .hextra-search-trigger {
 .sc-model-facts {
   display: flex;
   flex-wrap: wrap;
-  gap: .35rem .7rem;
-  margin: .7rem 0 1.4rem;
+  gap: .45rem .8rem;
+  margin: .75rem 0 1.35rem;
   color: var(--sc-muted);
   font-size: .82rem;
   line-height: 1.45;
@@ -414,10 +414,10 @@ html:not(.dark) .hextra-search-trigger {
 
 .sc-generic-overview {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(300px, .95fr);
-  gap: 2rem;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+  gap: 1rem;
   align-items: start;
-  margin: 1rem 0 2rem;
+  margin: 1rem 0 1.35rem;
 }
 
 .sc-generic-preview,
@@ -428,17 +428,17 @@ html:not(.dark) .hextra-search-trigger {
 
 .sc-generic-side {
   display: grid;
-  gap: 1.65rem;
+  gap: 1.35rem;
 }
 
 .sc-generic-preview h2,
 .sc-generic-block h2,
 .sc-document-section h2 {
-  margin: 0 0 .7rem;
+  margin: 0 0 .65rem;
   color: var(--sc-ink);
   font-size: 1.35rem;
   line-height: 1.3;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .sc-generic-block .sc-actions {
@@ -713,37 +713,18 @@ html:not(.dark) .hextra-search-trigger {
 }
 
 .sc-command-list {
-  margin: .4rem 0 0;
+  margin: .55rem 0 0;
   padding: 0;
   list-style: none;
-  counter-reset: cmd;
 }
 
 .sc-command-list > li {
-  position: relative;
-  padding: .85rem 0 .9rem 2.55rem;
+  padding: .72rem 0 .78rem;
   border-bottom: 1px solid var(--sc-line);
 }
 
 .sc-command-list > li:last-child {
   border-bottom: 0;
-}
-
-.sc-command-list > li::before {
-  counter-increment: cmd;
-  content: counter(cmd);
-  position: absolute;
-  left: 0;
-  top: .85rem;
-  display: grid;
-  place-items: center;
-  width: 1.7rem;
-  height: 1.7rem;
-  border-radius: 50%;
-  background: #eaf3ff;
-  color: #19518e;
-  font-size: .72rem;
-  font-weight: 800;
 }
 
 .sc-command-heading {
