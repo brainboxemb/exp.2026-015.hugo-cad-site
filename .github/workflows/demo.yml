@@ -214,7 +214,7 @@ jobs:
     needs: stage-preview-pages
     runs-on: ubuntu-latest
     environment:
-      name: github-pages
+      name: github-pages-preview
       url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/preview/pr-${{ github.event.pull_request.number }}/
     steps:
       - name: Deploy approval preview
