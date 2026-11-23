@@ -88,6 +88,8 @@ jobs:
           grep -F "cad-collapsible" public/models/simple-mft/index.html
           grep -F "23 commands" public/models/simple-mft/index.html
           grep -F "Reference and 2D expectation" public/models/simple-mft/index.html
+          grep -F "Model context" public/models/simple-mft/index.html
+          grep -F "<ul>" public/models/simple-mft/index.html
           grep -F "Build and verification" public/models/simple-mft/index.html
           grep -F "expected-top-view" public/models/simple-mft/index.html
           grep -F "The actual SCPF Python source used by this model." public/models/simple-mft/index.html
@@ -208,17 +210,6 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: published
-
-  deploy-preview:
-    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
-    needs: stage-preview-pages
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages-preview
-      url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/preview/pr-${{ github.event.pull_request.number }}/
-    steps:
-      - name: Deploy approval preview
-        uses: actions/deploy-pages@v4
 
   stage-pages:
     if: github.event_name != 'pull_request'
