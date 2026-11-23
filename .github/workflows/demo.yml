@@ -82,6 +82,7 @@ jobs:
         run: |
           test -s public/models/simple-mft/index.html
           test -s public/layout-assets/simple-mft/product-reference.webp
+          grep -F "Built in SolidCraft 0.45.0" public/models/simple-mft/index.html
           grep -F "cad-model-overview" public/models/simple-mft/index.html
           grep -F "cad-source-section" public/models/simple-mft/index.html
           grep -F "cad-verification-grid" public/models/simple-mft/index.html
@@ -118,6 +119,7 @@ jobs:
           grep -F "sc-page-shell" public/models/index.html
           grep -F "SolidCraft CAD" public/models/index.html
           grep -F "Explicit world positions keep this compact comparison model simple." public/models/plate/index.html
+          grep -F "SolidCraft 0.45.0 · verified" public/models/plate/index.html
           grep -F "Model preview" public/models/plate/index.html
           grep -F "Construction stages" public/models/plate/index.html
           grep -F "parameters.add" public/models/plate/index.html
