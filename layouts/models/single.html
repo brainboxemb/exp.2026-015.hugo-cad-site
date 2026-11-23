@@ -55,9 +55,10 @@
   {{ with index $provenance "solidcraft_version" }}
     {{ $solidcraftVersion = . }}
   {{ else }}
-    {{ $runtimeImage := index $provenance "runtime_image" }}
-    {{ with index site.Data.cad.runtime_versions.images $runtimeImage }}
-      {{ $solidcraftVersion = index . "solidcraft_version" }}
+    {{ with index $provenance "runtime_image" }}
+      {{ with index site.Data.cad.runtime_versions.images . }}
+        {{ $solidcraftVersion = index . "solidcraft_version" }}
+      {{ end }}
     {{ end }}
   {{ end }}
 
