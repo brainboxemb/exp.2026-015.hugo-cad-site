@@ -50,6 +50,16 @@
   {{ $semantic := "not-configured" }}
   {{ with index $provenance "semantic_verification" }}{{ $semantic = . }}{{ end }}
   {{ $built := eq (index $provenance "solidcraft_built") true }}
+  {{ $verified := eq (index $provenance "solidcraft_verified") true }}
+  {{ $solidcraftVersion := "" }}
+  {{ with index $provenance "solidcraft_version" }}
+    {{ $solidcraftVersion = . }}
+  {{ else }}
+    {{ $runtimeImage := index $provenance "runtime_image" }}
+    {{ with index site.Data.cad.runtime_versions.images $runtimeImage }}
+      {{ $solidcraftVersion = index . "solidcraft_version" }}
+    {{ end }}
+  {{ end }}
 
   <article class="cad-page-shell cad-model-detail">
     <header class="cad-model-hero">
@@ -59,10 +69,10 @@
     </header>
 
     <div class="cad-model-statusbar">
-      {{ if eq $semantic "pass" }}
-        <span class="cad-status cad-status-ok">SolidCraft verified</span>
+      {{ if $verified }}
+        <span class="cad-status cad-status-ok">SolidCraft{{ with $solidcraftVersion }} {{ . }}{{ end }} · verified</span>
       {{ else if $built }}
-        <span class="cad-status cad-status-built">Built in SolidCraft</span>
+        <span class="cad-status cad-status-built">Built in SolidCraft{{ with $solidcraftVersion }} {{ . }}{{ end }}</span>
       {{ else }}
         <span class="cad-status cad-status-pending">No accepted build evidence</span>
       {{ end }}
