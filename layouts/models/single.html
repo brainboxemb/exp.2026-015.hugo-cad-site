@@ -129,6 +129,7 @@
 
     {{ with $views := index $m "extra_views" }}
       <section class="cad-panel">
+        <p class="cad-section-label">Design reference</p>
         <h2 class="cad-section-title">{{ index $views "title" }}</h2>
         {{ with index $views "note" }}<p>{{ . }}</p>{{ end }}
         <div class="cad-reference-grid">
