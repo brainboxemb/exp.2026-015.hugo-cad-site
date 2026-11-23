@@ -1,0 +1,12 @@
+{
+  "forge_sha": "9258d54079981604b6dd777a4c4face897c190fe",
+  "independent_scpc_compared": false,
+  "model": "hub75-screen",
+  "runtime_image": "ghcr.io/brainboxemb/cad-solidcraft:v0.3.4",
+  "schema": 1,
+  "scpc_sha": null,
+  "semantic_verification": "not-configured",
+  "solidcraft_built": true,
+  "solidcraft_verified": false,
+  "source_sha": "66afc43b8fa2d24860b2faaedf6df1f1a93a036b"
+}
