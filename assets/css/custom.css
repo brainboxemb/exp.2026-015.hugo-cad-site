@@ -1322,22 +1322,22 @@ html:not(.dark) .hextra-search-trigger {
 }
 
 .cad-stages {
-  margin: .45rem 0 0;
+  margin: .35rem 0 0;
   padding-left: 1.2rem;
   color: var(--cad-ink);
   list-style: disc;
   font-family: var(--cad-font-sans) !important;
   font-size: 1rem;
-  line-height: 1.52;
+  line-height: 1.42;
   font-weight: 400;
 }
 
 .cad-stages li {
-  margin: .28rem 0;
+  margin: .12rem 0;
   color: var(--cad-ink);
   font-family: var(--cad-font-sans) !important;
   font-size: 1rem;
-  line-height: 1.52;
+  line-height: 1.42;
   font-weight: 400;
 }
 
