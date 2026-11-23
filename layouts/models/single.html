@@ -121,6 +121,7 @@
     {{ $detailPath := printf "model-details/%s.md" .Params.cadSlug }}
     {{ with resources.Get $detailPath }}
       <section class="cad-panel cad-background">
+        <p class="cad-section-label">Model context</p>
         <h2 class="cad-section-title">Background</h2>
         <div class="cad-rich-text">{{ $.RenderString .Content }}</div>
       </section>
