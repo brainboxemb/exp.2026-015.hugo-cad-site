@@ -1395,7 +1395,20 @@ html:not(.dark) .hextra-search-trigger {
 .cad-rich-text ul,
 .cad-rich-text ol {
   margin: .45rem 0 .7rem;
-  padding-left: 1.25rem;
+  padding-left: 1.45rem !important;
+}
+
+.cad-rich-text ul {
+  list-style: disc outside !important;
+}
+
+.cad-rich-text ol {
+  list-style: decimal outside !important;
+}
+
+.cad-rich-text li {
+  display: list-item !important;
+  padding-left: .1rem;
 }
 
 .cad-rich-text li::marker {
